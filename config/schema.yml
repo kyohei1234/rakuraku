@@ -1,0 +1,4 @@
+propel:
+  user:
+    name: varchar(60) #名前
+    email: varchar(60) #メールアドレス
