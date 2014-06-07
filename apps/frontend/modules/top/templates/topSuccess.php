@@ -1,11 +1,16 @@
-<?php echo link_to('インデックスへ', 'top/index') ?>
 <section>
+	
 	<article>
 	</article>
+	
 	<article>
 	</article>
+	
+	<!-- アンケート -->
 	<article>
 	</article>
+	
+	<!-- サービス内容 -->
 	<article class="item-list">
 		<div class="item-row">
 			<div class="item-column">
@@ -48,4 +53,5 @@
 			</div>
 		</div>
 	</article>
+
 </section>

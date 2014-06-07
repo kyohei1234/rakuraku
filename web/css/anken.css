@@ -1,10 +1,17 @@
 header 
 {
+	height: 25px;
 	border: solid 1px #5e5e5e;
+}
+header div
+{
+	font-size: 15px;
+	float: left;
 }
 header form
 {
 	float: right;
+	margin-top:4px;
 }
 footer div
 {
@@ -21,7 +28,7 @@ footer div
 }
 .item-list
 {
-	margin: ;
+
 }
 .item-row
 {
@@ -29,23 +36,26 @@ footer div
 }
 .item-column
 {
-	border: solid px white;
+	border: solid 1px white;
 	float: left;
-	height: 100px;
 	width: 30%;
 	padding: 10px;
 	background-color: #cccccc;
+	margin: auto;
 }
 .item-top
 {	
-	width: 30px;
-	height: 40px;
+	width: 350px;
+	height: 300px;
 	padding-left: 10px;
-	background-color: blue;
+	background-color: white;
+	margin: auto;
 }
 .item-bottom
 {
-	margin-bottom: 20px;
+	height: 100px;
+	background-color: yellow;
+	margin-top: 10px;
 }
 footer div
 {

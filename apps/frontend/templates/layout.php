@@ -15,7 +15,8 @@
 	<body>
 		
 		<!-- ヘッダー -->
-		<header>ホーム
+		<header>
+			<div>ホーム</div>
 			<form method="get" action="#" class="search">
 				<div>
 					<input type="text" name="example" class="textBox"><input type="submit" value="検索" class="btn">
