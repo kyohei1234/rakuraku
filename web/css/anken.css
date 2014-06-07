@@ -1,0 +1,53 @@
+header 
+{
+	border: solid 1px #5e5e5e;
+}
+header form
+{
+	float: right;
+}
+footer div
+{
+	float: left;
+	border-right: solid 1px #5e5e5e;
+}
+.title
+{
+	font-size: 35px;
+}
+.subtitle 
+{
+	font-size: 25px; 
+}
+.item-list
+{
+	margin: ;
+}
+.item-row
+{
+	width: 100%;
+}
+.item-column
+{
+	border: solid px white;
+	float: left;
+	height: 100px;
+	width: 30%;
+	padding: 10px;
+	background-color: #cccccc;
+}
+.item-top
+{	
+	width: 30px;
+	height: 30px;
+	padding-left: 10px;
+	background-color: blue;
+}
+.item-bottom
+{
+	margin-bottom: 20px;
+}
+footer div
+{
+	font-size: 20px;
+}
