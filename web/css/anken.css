@@ -31,8 +31,13 @@ footer div
 .heading-top
 {
 	width: 100%;
-	height: 400px;
+	height: 500px;
 	background-color: orange;
+}
+.heading-top img
+{
+	width: 100%;
+	height: 100%;
 }
 .heading-bottom
 {

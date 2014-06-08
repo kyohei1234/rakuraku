@@ -3,6 +3,7 @@
 	<article class="heading">
 		<div>
 			<div class="heading-top">
+				<?php echo image_tag('topimage.jpg') ?>
 			</div>
 			<div class="heading-bottom">
 			</div>
@@ -33,14 +34,14 @@
 				<?php echo checkbox_tag('q2', 1, false) ?>その他<br/>
 				<?php echo textarea_tag('name', '', 'size=100x10') ?>
 				<div>現在、当社では楽天RMSでの入力を簡略化するツールの開発を進めております。そこで楽天RMSでのHTMLの入力に煩雑さを感じたことはありますか。</div>
-				<select name="q3">
+				<?php echo select_tag('payment',
+				  '<option selected="selected">
 				<option value="ans0"></option>
 				<option value="ans1">入力するのがとても煩雑に感じる</option>
 				<option value="ans2">入力するのが煩雑に感じる</option>
 				<option value="ans3">普通</option>
 				<option value="ans4">入力するのは楽だ</option>
-				<option value="ans4">入力するのはとても楽だ</option>
-				</select>
+				<option value="ans4">入力するのはとても楽だ</option>') ?>
 				<div>店舗を運営する中で、欲しいと思ったツール、サービスはありますか。</div> 
 				<?php echo checkbox_tag('q4', 1, false) ?>RMSでの入力を簡潔化するツール<br/>
 				<?php echo checkbox_tag('q4', 1, false) ?>サイトの更新日を表示するツール<br/>
