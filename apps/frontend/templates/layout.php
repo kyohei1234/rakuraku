@@ -16,12 +16,12 @@
 		
 		<!-- ヘッダー -->
 		<header>
-			<div>ホーム</div>
-			<form method="get" action="#" class="search">
+			<div>赤坂ウェブサービス</div>
+			<!-- <form method="get" action="#" class="search">
 				<div>
 					<input type="text" name="example" class="textBox"><input type="submit" value="検索" class="btn">
 				</div>
-			</form>
+			</form> -->
 		</header>  
 
 		<!-- コンテンツ -->
