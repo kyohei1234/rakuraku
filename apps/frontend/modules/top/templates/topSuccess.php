@@ -3,6 +3,7 @@
 	<article class="heading">
 		<div>
 			<div class="heading-top">
+				<div class="heading-title">楽天の煩雑なRMSを誰でも簡単に</div>
 				<?php echo image_tag('topimage.jpg') ?>
 			</div>
 			<div class="heading-bottom">
@@ -15,9 +16,9 @@
 		<div class="surver-wrapper">
 			<?php echo form_tag('top/update') ?>
 				<div>名前</div>
-				<?php echo input_tag('name', '記入してください') ?>
+				<?php echo input_tag('name', '') ?>
 				<div>アドレス</div> 
-				<?php echo input_tag('address', '記入してください') ?>
+				<?php echo input_tag('address', '') ?>
 				<div>楽天市場での店舗運営において、販売促進ツールを使用したことがありますか。</div>
 				<select name="q1">
 				<option value="ans0"></option>

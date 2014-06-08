@@ -34,6 +34,17 @@ footer div
 	height: 500px;
 	background-color: orange;
 }
+.heading-title
+{
+	font-style: italic;
+	font-size: 55px;
+	font-family: cursive;
+	position: absolute;
+	top: 220px;
+	left: 300px;
+	color: white;
+
+}
 .heading-top img
 {
 	width: 100%;
@@ -53,7 +64,6 @@ footer div
 {
 	height: 450px;
 	width: 100%;
-	padding-left: 35px;
 }
 .item-column
 {
