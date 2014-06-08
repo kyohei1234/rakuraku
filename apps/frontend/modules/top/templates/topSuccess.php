@@ -13,63 +13,46 @@
 	<article class="survey">
 		<div class="surver-wrapper">
 			<?php echo form_tag('top/update') ?>
-				<INPUT TYPE="hidden" NAME="ok_page" VALUE="">
-				<br/>
 				<div>名前</div>
-				<INPUT TYPE="text" NAME="shop name" SIZE="30" MAXLENGTH="40"> 
-				<br/>
+				<?php echo input_tag('name', '記入してください') ?>
 				<div>アドレス</div> 
-				<INPUT TYPE="text" NAME="address" SIZE="30" MAXLENGTH="60">
-				<br/>
-				<br/>
+				<?php echo input_tag('address', '記入してください') ?>
 				<div>楽天市場での店舗運営において、販売促進ツールを使用したことがありますか。</div>
-				<?php echo form_tag('top/update')?>
-					<select name="q1">
-						<option value="ans0"></option>
-						<option value="ans1">現在使用している。</option>
-						<option value="ans2">以前、使用していたことがある。</option>
-						<option value="ans3">使用したことがない。</option>
-						<option value="ans4">このアンケートで販売促進ツールについて初めて知った。</option>
-					</select>
-				</form>
-				<br/>
+				<select name="q1">
+				<option value="ans0"></option>
+				<option value="ans1">現在使用している。</option>
+				<option value="ans2">以前、使用していたことがある。</option>						
+				<option value="ans3">使用したことがない。</option>
+				<option value="ans4">このアンケートで販売促進ツールについて初めて知った。</option>
+				</select>
 				<div>1つ前の質問で、2または3を選んだ方にお聞きします、何故使用していないまたは使用をやめたのですか？</div> 
-					<input type="checkbox" name="q2" value="ans0">ツールの値段が高い<br/>
-					<input type="checkbox" name="q2" value="ans1">使っても売り上げが上がらなかった（上がらないと思った)<br/>
-					<input type="checkbox" name="q2" value="ans2">店舗のイメージとツールのデザインが合わなかった<br/>
-					<input type="checkbox" name="q2" value="ans3">ツールの使い勝手が悪い<br/>
-					<input type="checkbox" name="q2" value="ans4">その他<br/>
-				<INPUT TYPE="text" NAME="comment" SIZE="200" MAXLENGTH="400">
-				<br/> 
-				<br/>
+				<?php echo checkbox_tag('q2', 1, false) ?>ツールの値段が高い<br/>
+				<?php echo checkbox_tag('q2', 1, false) ?>使っても売り上げが上がらなかった（上がらないと思った)<br/>
+				<?php echo checkbox_tag('q2', 1, false) ?>店舗のイメージとツールのデザインが合わなかった<br/>
+				<?php echo checkbox_tag('q2', 1, false) ?>ツールの使い勝手が悪い<br/>
+				<?php echo checkbox_tag('q2', 1, false) ?>その他<br/>
+				<?php echo textarea_tag('name', '', 'size=100x10') ?>
 				<div>現在、当社では楽天RMSでの入力を簡略化するツールの開発を進めております。そこで楽天RMSでのHTMLの入力に煩雑さを感じたことはありますか。</div>
-				<?php echo form_tag('top/update') ?>
-					<select name="q3">
-						<option value="ans0"></option>
-						<option value="ans1">入力するのがとても煩雑に感じる</option>
-						<option value="ans2">入力するのが煩雑に感じる</option>
-						<option value="ans3">普通</option>
-						<option value="ans4">入力するのは楽だ</option>
-						<option value="ans4">入力するのはとても楽だ</option>
-					</select>
-				</form>
-				<br/>
+				<select name="q3">
+				<option value="ans0"></option>
+				<option value="ans1">入力するのがとても煩雑に感じる</option>
+				<option value="ans2">入力するのが煩雑に感じる</option>
+				<option value="ans3">普通</option>
+				<option value="ans4">入力するのは楽だ</option>
+				<option value="ans4">入力するのはとても楽だ</option>
+				</select>
 				<div>店舗を運営する中で、欲しいと思ったツール、サービスはありますか。</div> 
-					<input type="checkbox" name="q4" value="サンプル">RMSでの入力を簡潔化するツール<br/>
-					<input type="checkbox" name="q4" value="サンプル">サイトの更新日を表示するツール<br/>
-					<input type="checkbox" name="q4" value="サンプル">画像編集を容易にできるツール<br/>
-					<input type="checkbox" name="q4" value="サンプル">バナー広告を表示するツール<br/>
-					<input type="checkbox" name="q4" value="サンプル">ホーム画面や商品画面のレイアウトのテンプレート<br/>
-					<input type="checkbox" name="q4" value="サンプル">出荷予定日を表示するツール<br/>
-					<input type="checkbox" name="q4" value="サンプル">ショップのレビューを表示するツール<br/>
-					<input type="checkbox" name="q4" value="サンプル">その他(自由記述)<br/>
-				<INPUT TYPE="text" NAME="comment" SIZE="200" MAXLENGTH="400">
-				<br/> 
-				<br/>
+				<?php echo checkbox_tag('q4', 1, false) ?>RMSでの入力を簡潔化するツール<br/>
+				<?php echo checkbox_tag('q4', 1, false) ?>サイトの更新日を表示するツール<br/>
+				<?php echo checkbox_tag('q4', 1, false) ?>画像編集を容易にできるツール<br/>
+				<?php echo checkbox_tag('q4', 1, false) ?>バナー広告を表示するツール<br/>
+				<?php echo checkbox_tag('q4', 1, false) ?>ホーム画面や商品画面のレイアウトのテンプレート<br/>
+				<?php echo checkbox_tag('q4', 1, false) ?>出荷予定日を表示するツール<br/>
+				<?php echo checkbox_tag('q4', 1, false) ?>ショップのレビューを表示するツール<br/>
+				<?php echo checkbox_tag('q4', 1, false) ?>その他(自由記述)<br/>
+				<?php echo textarea_tag('name', '', 'size=100x10') ?>
 				<div>その他、販売促進ツールに関するご意見や当社へのご要望等ございましたらご自由にお書きください。</div> 
-				<INPUT TYPE="text" NAME="comment" SIZE="200" MAXLENGTH="400">
-				<br/> 
-				<br/>
+				<?php echo textarea_tag('name', '', 'size=100x10') ?>
 				<INPUT TYPE="submit" VALUE="送信">
 				<INPUT TYPE="reset" VALUE="クリア">
 			</form>	

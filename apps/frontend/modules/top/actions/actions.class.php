@@ -14,4 +14,9 @@ class topActions extends sfActions
   {
   		
   }
+
+  public function executePrivacyPolicy()
+  {
+
+  }
 }
