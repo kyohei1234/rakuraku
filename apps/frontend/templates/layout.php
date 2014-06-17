@@ -15,12 +15,13 @@
 	<body>
 		
 		<!-- ヘッダー -->
-		<header>ホーム
-			<form method="get" action="#" class="search">
+		<header>
+			<div><?php echo link_to('赤坂ウェブサービス', 'top/top') ?></div>
+			<!-- <form method="get" action="#" class="search">
 				<div>
 					<input type="text" name="example" class="textBox"><input type="submit" value="検索" class="btn">
 				</div>
-			</form>
+			</form> -->
 		</header>  
 
 		<!-- コンテンツ -->
@@ -31,7 +32,7 @@
 			<nav>
 				<div><a href="kan.html">会社概要</a></div>
 				<div><a href="kan.html">サービス</a></div>
-				<div><a href="kan.html">プライバシーポリシー</a></div>
+				<div><?php echo link_to('プライバシーポリシー', 'top/privacyPolicy') ?></div>
 				<div><a href="kan.html">サイトマップ</a></div>
 				<div><a href="kan.html">お知らせ</a></div>
 				<div><a href="kan.html">お問い合わせ</a></div>
