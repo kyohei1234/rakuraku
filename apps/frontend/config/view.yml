@@ -9,7 +9,7 @@ default:
     keywords:     赤坂, 楽天, rakuraku
     language:     ja
 
-  stylesheets:    [main, anken]
+  stylesheets:    [main, anken, bootstrap]
 
   javascripts:    []
 

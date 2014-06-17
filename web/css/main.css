@@ -7,9 +7,9 @@ a
   text-decoration: none;
 }
 
-a:hover
+a:hover, a:visited, a:active
 {
-  text-decoration: underline;
+  color: inherit;
 }
 
 body, td

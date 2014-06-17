@@ -16,12 +16,7 @@
 		
 		<!-- ヘッダー -->
 		<header>
-			<div><?php echo link_to('赤坂ウェブサービス', 'top/top') ?></div>
-			<!-- <form method="get" action="#" class="search">
-				<div>
-					<input type="text" name="example" class="textBox"><input type="submit" value="検索" class="btn">
-				</div>
-			</form> -->
+			<div class="logo"><?php echo link_to('Akasaka Web Service', '@homepage') ?></div>
 		</header>  
 
 		<!-- コンテンツ -->
