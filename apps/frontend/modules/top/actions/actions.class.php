@@ -12,11 +12,21 @@ class topActions extends sfActions
 {
   public function executeTop()
   {
-  		
+
   }
 
   public function executePrivacyPolicy()
   {
 
+  }
+
+  // public function executeUpdate()
+  // {
+
+  // }
+
+  public function handleErrorUpdate()
+  {
+  	$this->forward('top', 'top');
   }
 }
