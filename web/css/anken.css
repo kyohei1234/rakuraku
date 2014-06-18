@@ -1,0 +1,102 @@
+header 
+{
+	height: 60px;
+	border: solid 1px #5e5e5e;
+}
+
+.logo
+{
+	font-size: 30px;
+	padding-left: 30px;
+	float: left;
+	color: #FF8686;
+	font-family: monospace;
+	line-height: 60px;
+}
+
+footer div
+{
+	float: left;
+	margin-left: 10px;
+}
+
+.title
+{
+	font-size: 35px;
+}
+
+.subtitle 
+{
+	font-size: 25px; 
+}
+
+.heading-top
+{
+	width: 100%;
+	height: 500px;
+	background-color: orange;
+}
+
+.heading-title
+{
+	font-style: italic;
+	font-size: 55px;
+	font-family: cursive;
+	position: absolute;
+	top: 220px;
+	left: 300px;
+	color: white;
+
+}
+
+.heading-top img
+{
+	width: 100%;
+	height: 100%;
+}
+
+.heading-bottom
+{
+	width: 100%;
+	height: 40px;
+}
+
+.item-list
+{
+
+}
+
+.item-row
+{
+	height: 350px;
+	width: 80%;
+	margin: auto;
+}
+
+.item-column
+{
+	border: solid 1px white;
+	float: left;
+	width: 30%;
+	padding: 10px;
+	background-color: #cccccc;
+}
+
+.item-top
+{	
+	height: 200px;
+	background-color: white;
+	margin: auto;
+}
+
+.item-bottom
+{
+	height: 100px;
+	background-color: yellow;
+	margin-top: 10px;
+}
+
+.survey
+{
+	padding: 50px;
+}
