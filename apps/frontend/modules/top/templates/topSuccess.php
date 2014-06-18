@@ -52,7 +52,7 @@
         	<?php foreach (QuestionUtil::$q2_array as $key => $value): ?>
         		<?php $q2_params = $sf_params->get('q2') ? $sf_params->get('q2') : array('') ?>
 	        	<label>
-	        		<?php echo checkbox_tag('q2[]', $key, in_array($key, $q2_params)).'&nbsp'.$value ?>
+	        		<?php echo checkbox_tag('q2[]', $key, in_array($key, $q2_params)).'&nbsp;'.$value ?>
 	        	</label>
 	        	<br>
         	<?php endforeach ?>
@@ -85,14 +85,14 @@
         	<?php foreach (QuestionUtil::$q4_array as $key => $value): ?>
         	<?php $q4_params = $sf_params->get('q4') ? $sf_params->get('q4') : array('') ?>
 	        	<label>
-	        		<?php echo checkbox_tag('q4[]', $key, in_array($key, $q4_params)).'&nbsp'.$value ?>
+	        		<?php echo checkbox_tag('q4[]', $key, in_array($key, $q4_params)).'&nbsp;'.$value ?>
 	        	</label>
 	        	<br>
         	<?php endforeach ?>
         </div>
-        <div class="col-sm-12">
+        <div class="">
 						<?php echo textarea_tag('q4_text', '', array('class' => 'form-control', 'placeholder' => 'その他、販売促進ツールに関するご意見や当社へのご要望等ございましたらご自由にお書きください。', 'rows'=>'10')) ?>
-					</div>
+				</div>
       </div>
       <div class="submit-wrapper">
       	<button type="submit" class="btn btn-success form-submit">送信</button>

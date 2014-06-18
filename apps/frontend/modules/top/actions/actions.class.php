@@ -20,10 +20,10 @@ class topActions extends sfActions
 
   }
 
-  // public function executeUpdate()
-  // {
+  public function executeUpdate()
+  {
 
-  // }
+  }
 
   public function handleErrorUpdate()
   {
