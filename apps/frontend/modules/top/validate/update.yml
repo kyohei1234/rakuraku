@@ -1,0 +1,15 @@
+fillin:
+  enabled: true  # フォームの再投入を有効にする
+
+methods:
+  post: [name, email]
+
+names:
+  name:
+    required:    true
+    required_msg: 名前を入力してください
+
+  email:
+    required:     true
+    required_msg: メールアドレスを入力してください
+

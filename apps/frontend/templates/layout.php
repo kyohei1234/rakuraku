@@ -9,15 +9,16 @@
 		<?php include_title() ?>
 
 		<link rel="shortcut icon" href="/favicon.ico" />
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
 
 	</head>
 
 	<body>
-		
+
 		<!-- ヘッダー -->
 		<header>
 			<div class="logo"><?php echo link_to('Akasaka Web Service', '@homepage') ?></div>
-		</header>  
+		</header>
 
 		<!-- コンテンツ -->
 		<?php echo $sf_data->getRaw('sf_content') ?>
@@ -32,7 +33,7 @@
 				<div><a href="kan.html">お知らせ</a></div>
 				<div><a href="kan.html">お問い合わせ</a></div>
 			</nav>
-		</footer> 
+		</footer>
 
 	</body>
 </html>
