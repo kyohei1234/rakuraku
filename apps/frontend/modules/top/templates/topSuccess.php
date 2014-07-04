@@ -11,7 +11,7 @@
 	</article>
 
 	<!-- アンケート -->
-	<article class="survey">
+	<!-- <article class="survey">
 		<div class="surver-wrapper">
 			<h2>アンケート</h2>
 			<?php echo form_tag('top/update', array('class' => 'form-horizontal')) ?>
@@ -100,11 +100,11 @@
 
 			</form>
 		</div>
-	</article>
+	</article> -->
 
 
 	<!-- サービス内容 -->
-	<article class="item-list">
+	<!-- <article class="item-list">
 		<div class="item-row">
 			<div class="item-column">
 				<div class="item-top">
@@ -145,6 +145,6 @@
 				</div>
 			</div>
 		</div>
-	</article>
+	</article> -->
 
 </section>
