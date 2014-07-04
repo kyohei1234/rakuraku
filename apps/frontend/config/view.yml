@@ -5,11 +5,11 @@ default:
   metas:
     title:        赤坂ウェブサービス
     robots:       index, follow
-    description:  
+    description:
     keywords:     赤坂, 楽天, rakuraku
     language:     ja
 
-  stylesheets:    [main, anken, bootstrap]
+  stylesheets:    [main, anken, bootstrap, font-awesome]
 
   javascripts:    []
 

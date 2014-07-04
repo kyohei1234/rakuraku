@@ -20,3 +20,30 @@ body, td
   font-size: 11px;
   background-color: #fff;
 }
+
+.color-box
+{
+	width: 3em;
+	height: 3em;
+}
+
+.select-color .radio-inline input[type="radio"]
+{
+	margin-top: 1.3em;
+}
+
+.select-font .radio-inline input[type="radio"]
+{
+	margin-top: 0.7em;
+}
+
+
+.radio-inline
+{
+	margin-right: 10px;
+}
+
+.font-radio
+{
+	font-size: 25px;
+}

@@ -145,3 +145,22 @@ footer div
 {
 	margin-bottom: 30px;
 }
+
+.checkbox
+
+.checkbox label
+{
+	line-height: 40px;
+}
+
+
+.video-wrapper
+{
+	width: 80%%;
+	margin: auto;
+}
+
+video
+{
+	width: 100%;
+}
