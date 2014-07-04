@@ -1,19 +1,108 @@
 <?php use_helper('Validation') ?>
 
-<section>
-
+<section class="top-video">
 	<div class="video-wrapper">
-		<video src="videos/movie2.mp4" loop controls>
+		<video src="videos/movie2.mp4" loop autoplay>
 		</video>
 	</div>
+</section>
 
-	<article class="heading">
+<section class="top-characteristics">
+    <div class="row">
+      <h2>期間限定！アンケートに答えると更新アプリ無料プレゼント！</h2>
+      <div class="btn">今すぐアンケートに答える</div>
+      <!-- <div class="characteristics-item">
+        <div>
+          <i class="fa fa-desktop"></i>
+        </div>
+        <h4>テキストテキストテキスト</h4>
+        <p>テキストテキストテキスト</p>
+      </div>
+      <div class="characteristics-item">
+        <div>
+          <i class="fa fa-smile-o"></i>
+        </div>
+        <h4>テキストテキストテキスト</h4>
+        <p>テキストテキストテキスト</p>
+      </div>
+      <div class="characteristics-item">
+        <div>
+          <i class="fa fa-file-image-o"></i>
+        </div>
+        <h4>テキストテキストテキスト</h4>
+        <p>テキストテキストテキスト</p>
+      </div>
+    </div> -->
+  </section>
+
+  <section class="top-method">
+    <div class="row">
+      <h3 class="method-title">商品フォーム簡単作成ツール</h3>
+      <div class="method-list">
+        <div class="method-item">
+          <div class="method-item-inner">
+            <div class="method-icon">
+              <i class="fa fa-file-image-o"></i>
+            </div>
+            <div class="method-text">テキストテキストテキスト</div>
+          </div>
+        </div>
+        <div class="method-item">
+          <div class="method-item-inner">
+            <div class="method-icon">
+              <i class="fa fa-file-image-o"></i>
+            </div>
+            <div class="method-text">テキストテキストテキスト</div>
+          </div>
+        </div>
+        <div class="method-item">
+          <div class="method-item-inner">
+            <div class="method-icon">
+              <i class="fa fa-file-image-o"></i>
+            </div>
+            <div class="method-text">テキストテキストテキスト</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="top-curriculum">
+    <div class="row">
+      <h2>Coming Soon</h2>
+      <div class="curriculum-item">
+        <div>
+          <i class="fa fa-calendar"></i>
+        </div>
+        <h4>テキストテキスト</h4>
+        <p>テキストテキストテキスト</p>
+      </div>
+      <div class="curriculum-item">
+        <div>
+          <i class="fa fa-pencil-square-o"></i>
+        </div>
+        <h4>テキストテキスト</h4>
+        <p>テキストテキストテキスト</p>
+      </div>
+      <div class="curriculum-item">
+        <div>
+          <i class="fa fa-search"></i>
+        </div>
+        <h4>テキストテキスト</h4>
+        <p>テキストテキストテキスト</p>
+      </div>
+    </div>
+  </section>
+
+
+
+	<!-- <article class="heading">
 		<div>
 			<div class="heading-top">
 				<span class="heading-title">楽天の煩雑なRMSを誰でも簡単に</span>
 			</div>
 		</div>
-	</article>
+	</article> -->
 
 
 	<!-- アンケート -->
@@ -152,5 +241,3 @@
 			</div>
 		</div>
 	</article> -->
-
-</section>

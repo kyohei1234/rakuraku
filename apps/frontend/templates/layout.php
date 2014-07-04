@@ -9,6 +9,7 @@
 	<?php include_title() ?>
 
 	<link rel="shortcut icon" href="/favicon.ico" />
+	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 </head>
 
@@ -28,18 +29,19 @@
 	<!-- コンテンツ -->
 	<?php echo $sf_data->getRaw('sf_content') ?>
 
-	<!-- フッター -->
-	<footer>
-		<nav>
-			<div><a href="kan.html">会社概要</a></div>
-			<div><a href="kan.html">サービス</a></div>
-			<div><?php echo link_to('プライバシーポリシー', 'top/privacyPolicy') ?></div>
-			<div><a href="kan.html">サイトマップ</a></div>
-			<div><a href="kan.html">お知らせ</a></div>
-			<div><a href="kan.html">お問い合わせ</a></div>
-		</nav>
-	</footer> 
+	  <!-- フッター -->
+  <footer id="top-footer">
+    <div class="row">
+      <div class="top-footer-title">Akasaka Web Service</div>
+      <nav class="top-footer-menu">
+        <div class="footer-menu-item">会社概要</div>
+        <div class="footer-menu-item">サービス</div>
+        <div class="footer-menu-item">プライバシーポリシー</div>
+        <div class="footer-menu-item">お問い合わせ</div>
+        <div class="footer-menu-item">© 2014 Akasaka Web Service</div>
+      </nav>
+    </div>
+  </footer>
 
 </body>
-
 </html>
