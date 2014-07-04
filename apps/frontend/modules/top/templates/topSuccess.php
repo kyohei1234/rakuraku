@@ -37,7 +37,7 @@
 
   <section class="top-method">
     <div class="row">
-      <h3 class="method-title">商品フォーム簡単作成ツール</h3>
+      <h3 class="method-title">商品データ表作成ツール</h3>
       <div class="method-list">
         <div class="method-item">
           <div class="method-item-inner">
