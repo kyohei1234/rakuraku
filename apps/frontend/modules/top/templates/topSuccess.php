@@ -38,6 +38,7 @@
   <section class="top-method">
     <div class="row">
       <h3 class="method-title">商品データ表作成ツール</h3>
+      <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
       <div class="method-list">
         <div class="method-item">
           <div class="method-item-inner">
