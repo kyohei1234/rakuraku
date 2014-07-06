@@ -1,0 +1,3 @@
+topSuccess:
+  stylesheets: [top, -main]
+  javascripts: [top.js]
