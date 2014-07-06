@@ -12,6 +12,12 @@ class KousinkunUtil{
 	public static $font_array = array(
 		'font1'=>'serif',
 		'font2'=>'Hiragino',
+		'font3'=>'monospace',
+		);
+
+	public static $font_color_array = array(
+		'black'=>'rgb(0, 0, 0)',
+		'gray'=>'rgb(99, 95, 95)',
 		);
 
 

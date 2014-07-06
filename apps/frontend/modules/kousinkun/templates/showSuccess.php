@@ -1,4 +1,4 @@
-
+<div class="contents-wrapper">
 
   <div class="main-wrapper">
     <div class="main">
@@ -13,8 +13,8 @@
     </div>
   </div>
 
-
-  <div>
+  <div>以下のソースコードをコピーして貼り付けると、上の楽々更新くんを表示できます。</div>
+  <div class="source">
     <?php echo htmlspecialchars(trim(
       '
       <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
@@ -34,22 +34,11 @@
       '.
       "
         <script>
-        $('.main').css({'font-size':'25px', 'display':'inline-block', 'padding':'0 15px', 'height':'50px', 'border': '1px solid rgb(99, 95, 95)'});
-
+        $('.main').css({'font-size':'25px', 'display':'inline-block', 'padding':'0 15px', 'height':'50px', 'border': $border});
         $('.main-wrapper').css({'padding':'60px'});
 
-        $('.kousin-main').css({'display':'inline-block', 'color':'rgb(99, 95, 95)', 'font-family':'
-      "))
-      .$font_family
-      .htmlspecialchars(trim(
-        "
-        '});
-        $('.fa-clock-o').css({'vertical-align':'super', 'color': '
-        "))
-      .$clock_color
-      .htmlspecialchars(trim(
-        "
-        ', 'line-height':'50px', 'font-size':'27px'});
+        $('.kousin-main').css({'display':'inline-block', 'color': $font_color, 'font-family': $font_family'});
+        $('.fa-clock-o').css({'vertical-align':'super', 'color': $clock_color, 'line-height':'50px', 'font-size':'27px'});
         $('.kousin-main div').css({'float':'left'});
         function Koushin()
         {
@@ -120,15 +109,18 @@
       </script>
       ")) ?>
 
+    </div>
+  </div>
+
 
 
   <script>
-    $('.main').css({'font-size':'25px', 'display':'inline-block', 'padding':'0 15px', 'height':'50px', 'border': '1px solid rgb(99, 95, 95)'});
+    $('.main').css({'font-size':'25px', 'display':'inline-block', 'padding':'0 15px', 'height':'50px', 'border': '<?php echo $border ?>'});
 
     $('.main-wrapper').css({'padding':'60px'});
 
-    $('.kousin-main').css({'display':'inline-block', 'color':'rgb(99, 95, 95)', 'font-family':'<?php echo $font_family ?>'});
-    $('.fa-clock-o').css({'vertical-align':'super', 'color': '<?php echo $clock_color ?>', 'line-height':'50px', 'font-size':'27px'});
+    $('.kousin-main').css({'display':'inline-block', 'color':'<?php echo $font_color ?>', 'font-family':'<?php echo $font_family ?>'});
+    $('.fa-clock-o').css({'vertical-align':'super', 'color':'<?php echo $clock_color ?>', 'line-height':'50px', 'font-size':'27px'});
 
 
     $('.kousin-main div').css({'float':'left'});
