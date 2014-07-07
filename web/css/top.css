@@ -78,7 +78,7 @@ li
   box-shadow: 0px 1px 1px rgba(255,255,255,0.3);
 }
 
-.scrolling a
+.scrolling #top-header a
 {
   color: rgb(255, 237, 237);
 }
@@ -309,6 +309,11 @@ body:not(.scrolling) #top-header
   color: white;
   border: none;
   border-radius: 5px;
+}
+
+.btn:hover
+{
+  color: white;
 }
 
 .register-btn

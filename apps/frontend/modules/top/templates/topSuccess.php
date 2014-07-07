@@ -1,5 +1,4 @@
 <?php use_helper('Validation') ?>
-
 <section class="top-video">
 	<div class="video-wrapper">
 		<video src="videos/movie2.mp4" loop autoplay>
@@ -10,7 +9,7 @@
 <section class="top-characteristics">
     <div class="row">
       <h2>期間限定！アンケートに答えると更新アプリ無料プレゼント！</h2>
-      <div class="btn">今すぐアンケートに答える</div>
+      <?php echo link_to('<div class="btn">今すぐアンケートに答える</div>', '@survey') ?>
       <!-- <div class="characteristics-item">
         <div>
           <i class="fa fa-desktop"></i>
