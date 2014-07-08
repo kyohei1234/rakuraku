@@ -1,7 +1,25 @@
+#user
+
+login:
+  url: /login
+  param: { module: user, action: login }
+
+logout:
+  url: /logout
+  param: { module: user, action: logout }
+
 #survey
 survey:
   url: /survey
   param: { module: survey, action: index }
+
+survey_update:
+  url: /survey_update
+  param: { module: survey, action: update }
+
+survey_complete:
+  url: /survey_complete
+  param: { module: survey, action: complete }
 
 #kousinkun
 kousinkun_select:

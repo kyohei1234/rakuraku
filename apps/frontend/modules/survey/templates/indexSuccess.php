@@ -1,9 +1,16 @@
 <?php use_helper('Validation') ?>
 <!-- アンケート -->
+
+<section class="survey-title">
+  <div class="row">
+    <h2>期間限定！アンケートに答えると更新アプリ無料プレゼント！</h2>
+  </div>
+</section>
+
 <article class="survey">
   <div class="surver-wrapper">
     <h2>アンケート</h2>
-    <?php echo form_tag('top/update', array('class' => 'form-horizontal')) ?>
+    <?php echo form_tag('@survey_update', array('class' => 'form-horizontal')) ?>
 
     <div class="form-group">
       <label class="col-sm-10">名前:<span class="required"> *必須</span></label>
