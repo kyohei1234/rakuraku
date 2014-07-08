@@ -3,6 +3,15 @@ survey:
   url: /survey
   param: { module: survey, action: index }
 
+#kousinkun
+kousinkun_select:
+  url: /kousinkun
+  param: { module: kousinkun, action: select }
+
+kousinkun_show:
+  url: /kousinkun_show
+  param: { module: kousinkun, action: show }
+
 # default rules
 homepage:
   url:   /

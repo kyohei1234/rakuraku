@@ -4,7 +4,7 @@
 	<article class="survey">
 		<div class="surver-wrapper">
 			<h2>らくらく更新くん</h2>
-			<?php echo form_tag('kousinkun/show', array('class' => 'form-horizontal')) ?>
+			<?php echo form_tag('@kousinkun_show', array('class' => 'form-horizontal')) ?>
 
 
 

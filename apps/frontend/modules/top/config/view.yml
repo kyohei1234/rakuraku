@@ -1,3 +1,3 @@
 topSuccess:
-  stylesheets: [top, -main]
+  stylesheets: [top, -main, -common]
   javascripts: [top.js]

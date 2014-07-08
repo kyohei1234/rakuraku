@@ -16,8 +16,8 @@ class kousinkunActions extends sfActions
    */
   public function executeShow()
   {
-  	$this->clock_color = KousinkunUtil::$color_array[$this->getRequestParameter('clock_color')];
-  	$this->font_family = KousinkunUtil::$font_array[$this->getRequestParameter('font_family')];
+    $this->clock_color = KousinkunUtil::$color_array[$this->getRequestParameter('clock_color')];
+    $this->font_family = KousinkunUtil::$font_array[$this->getRequestParameter('font_family')];
     $this->font_color = KousinkunUtil::$font_color_array[$this->getRequestParameter('font_color')];
     $this->border = $this->getRequestParameter('has_border') == 1 ? '1px solid rgb(99, 95, 95)' : '0';
   }

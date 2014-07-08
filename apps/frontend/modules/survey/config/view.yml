@@ -1,2 +1,2 @@
 indexSuccess:
-  stylesheets: [survey, -main]
+  stylesheets: [common, -main]
