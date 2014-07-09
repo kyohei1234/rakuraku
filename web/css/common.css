@@ -187,6 +187,49 @@ main
   color: #ed7000;
 }
 
+/*nyuryokun*/
+.nyuryokun-video
+{
+  background-color: rgba(255, 243, 232, 1);
+  width: 100%;
+}
+
+.nyuryokun-video-wrapper
+{
+  padding: 50px 0;
+  width: 80%;
+  margin: auto;
+}
+
+.characteristics
+{
+  color: #5F4B2D;
+}
+
+.characteristics img
+{
+  width: 40%;
+  border-radius: 5px;
+  padding-bottom: 20px;
+}
+
+.characteristics i
+{
+  font-size: 5em;
+  color: #E97373;
+}
+
+.characteristics
+{
+  padding: 50px 0;
+  text-align: center;
+}
+
+.down-arrow
+{
+  padding: 30px 0;
+}
+
 /*form*/
 
 .form_error

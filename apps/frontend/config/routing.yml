@@ -21,6 +21,11 @@ survey_complete:
   url: /survey_complete
   param: { module: survey, action: complete }
 
+#nyuryokun
+nyuryokun_show:
+  url: /nyuryokun_show
+  param: { module: nyuryokun, action: show }
+
 #kousinkun
 kousinkun_select:
   url: /kousinkun
