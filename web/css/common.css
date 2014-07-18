@@ -190,7 +190,6 @@ main
 /*nyuryokun*/
 .nyuryokun-video
 {
-  background-color: rgba(255, 243, 232, 1);
   width: 100%;
 }
 
@@ -204,6 +203,7 @@ main
 .characteristics
 {
   color: #5F4B2D;
+  background-color: rgba(255, 243, 232, 1);
 }
 
 .characteristics img

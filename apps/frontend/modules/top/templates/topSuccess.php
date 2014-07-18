@@ -37,14 +37,14 @@
   <section class="top-method">
     <div class="row">
       <h3 class="method-title">商品データ表作成ツール</h3>
-      <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+      <p>RMSを使った面倒な商品情報の入力はもういらない！<br>らくらくにゅうりょくんはRMSでのめんどうなHTML入力をすることなく、商品情報表を出力することができる、販売促進ツールです。</p>
       <div class="method-list">
         <div class="method-item">
           <div class="method-item-inner">
             <div class="method-icon">
               <i class="fa fa-file-image-o"></i>
             </div>
-            <div class="method-text">テキストテキストテキスト</div>
+            <div class="method-text">HTML不要！</div>
           </div>
         </div>
         <div class="method-item">
@@ -52,7 +52,7 @@
             <div class="method-icon">
               <i class="fa fa-file-image-o"></i>
             </div>
-            <div class="method-text">テキストテキストテキスト</div>
+            <div class="method-text">たったの3分！</div>
           </div>
         </div>
         <div class="method-item">
@@ -60,7 +60,7 @@
             <div class="method-icon">
               <i class="fa fa-file-image-o"></i>
             </div>
-            <div class="method-text">テキストテキストテキスト</div>
+            <div class="method-text">商品情報表を出力！</div>
           </div>
         </div>
       </div>
