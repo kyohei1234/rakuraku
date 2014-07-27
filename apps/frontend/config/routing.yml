@@ -1,0 +1,52 @@
+#user
+
+login:
+  url: /login
+  param: { module: user, action: login }
+
+logout:
+  url: /logout
+  param: { module: user, action: logout }
+
+#survey
+survey:
+  url: /survey
+  param: { module: survey, action: index }
+
+survey_update:
+  url: /survey_update
+  param: { module: survey, action: update }
+
+survey_complete:
+  url: /survey_complete
+  param: { module: survey, action: complete }
+
+#nyuryokun
+nyuryokun_show:
+  url: /nyuryokun_show
+  param: { module: nyuryokun, action: show }
+
+#kousinkun
+kousinkun_select:
+  url: /kousinkun
+  param: { module: kousinkun, action: select }
+
+kousinkun_show:
+  url: /kousinkun_show
+  param: { module: kousinkun, action: show }
+
+# default rules
+homepage:
+  url:   /
+  param: { module: top, action: top }
+
+default_symfony:
+  url:   /symfony/:action/*
+  param: { module: default }
+
+default_index:
+  url:   /:module
+  param: { action: index }
+
+default:
+  url:   /:module/:action/*

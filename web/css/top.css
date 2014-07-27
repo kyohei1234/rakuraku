@@ -1,0 +1,346 @@
+/*css*/
+
+.pr20
+{
+  padding-right: 20px;
+}
+
+.pr10
+{
+  padding-right: 10px;
+}
+
+.profile-image img
+{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.row {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/*html, body*/
+
+html, body
+{
+  height: 100%;
+  margin: 0;
+}
+
+a
+{
+  text-decoration: none;
+}
+
+li
+{
+  list-style-type: none;
+}
+
+/*top*/
+
+#top-body
+{
+  font-family: 'Lucida Grande', Meiryo, sans-serif;
+  font-weight: 100;
+}
+
+#top-header
+{
+  background: transparent;
+  color: white;
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  z-index: 1;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.top-header-inner
+{
+  width: 100%;
+  height: 100%;
+}
+
+.scrolling #top-header
+{
+  background-color: #E97373;
+  color: rgb(255, 237, 237);
+  transition: all 0.3s;
+  border-bottom: 2px solid transparent;
+  box-shadow: 0px 1px 1px rgba(255,255,255,0.3);
+}
+
+.scrolling #top-header a
+{
+  color: rgb(255, 237, 237);
+}
+
+body:not(.scrolling) #top-header
+{
+  box-shadow: none;
+  background: transparent;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.top-header-title
+{
+  position: absolute;
+  left: 10%;
+  line-height: 60px;
+  font-size: 35px;
+}
+
+.top-header-title a
+{
+  color: white;
+}
+
+.top-header-menu
+{
+  float: right;
+  padding-right: 30px;
+  line-height: 60px;
+}
+
+.top-main
+{
+  height: 100%;
+  min-height: 700px;
+}
+
+.top-video
+{
+  background-image: url("../images/topimage.jpg");
+  background-size: cover;
+  width: 100%;
+}
+
+.menu-item
+{
+  float:  left;
+  font-size: 16px;
+}
+
+.menu-item a
+{
+  color: white;
+  display: block;
+  padding: 0 10px;
+}
+
+.register
+{
+  position: absolute;
+  width: 250px;
+  top: 20%;
+  right: 15%;
+  color: #5F4B2D;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
+  border: 1px solid #fff;
+}
+
+.register-title
+{
+  text-align: center;
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+
+.register-inner
+{
+  margin: 20px;
+}
+
+.register-input
+{
+  width: 100%;
+}
+
+.register-sns
+{
+  padding-top: 20px;
+}
+
+.top-characteristics,
+.top-curriculum
+{
+  color: #5F4B2D;
+}
+
+.top-characteristics i,
+.top-curriculum i
+{
+  font-size: 100px;
+  margin-bottom: 50px;
+  color: #ed7000;
+}
+
+.top-characteristics
+{
+  padding: 50px 0;
+  text-align: center;
+}
+
+.top-curriculum
+{
+  padding: 100px 0;
+  text-align: center;
+}
+
+.characteristics-item,
+.curriculum-item
+{
+  float: left;
+  width: 33.33333%;
+}
+
+.top-method
+{
+  padding: 100px 0;
+  text-align: center;
+  color: #ed7000;
+  background-color: rgba(255, 243, 232, 1);
+}
+
+.method-title
+{
+  margin-bottom: 30px;
+}
+
+.method-list
+{
+  padding: 0 70px;
+}
+
+.method-item
+{
+  width: 33.3333%;
+  float: left;
+}
+
+.method-item-inner
+{
+  margin: 30px;
+  padding: 20px;
+  height: 150px;
+  border: 1px solid rgba(237, 112, 0, 0.5);
+  background-color: rgba(237, 112, 0, 0.1);
+}
+
+.method-icon
+{
+  float: left;
+  width: 40%;
+  padding: 20px 0;
+  font-size: 70px;
+}
+
+.method-text
+{
+  color: #5F4B2D;
+  height: 108px;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.top-characteristics h2,
+.top-curriculum h2
+{
+  margin-top: 0;
+  margin-bottom: 50px;
+  color: #E97373;
+}
+
+#top-footer
+{
+  padding: 20px 0;
+  color: #E97373;
+  background-color: rgb(255, 237, 237);
+}
+
+.top-footer-title
+{
+  padding: 0 30px;
+  font-size: 30px;
+  float: left;
+}
+
+.top-footer-menu
+{
+  float: right;
+  padding-right: 30px;
+}
+
+.footer-menu-item
+{
+  float: left;
+  padding: 0 20px;
+  line-height: 43px;
+}
+
+/*form*/
+
+.form_error
+{
+  color: red;
+  font-size: 11px;
+}
+
+/*buttons*/
+
+.btn
+{
+  padding: 10px 90px;
+  display: inline-block;
+  background-color: rgba(237, 112, 0, 0.7);
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.btn:hover
+{
+  color: white;
+}
+
+.register-btn
+{
+  padding: 10px 90px;
+  display: inline-block;
+  background-color: rgba(237, 112, 0, 0.7);
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.btn-facebook
+{
+  border: 1px solid #3b5998;
+  display: inline;
+  color: #3b5998;
+  background-color: white;
+  padding: 10px 45px;
+}
+
+.btn-twitter
+{
+  border: 1px solid #4099ff;
+  display: inline;
+  color: #4099ff;
+  background-color: white;
+  padding: 10px 43px;
+}
+

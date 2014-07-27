@@ -1,0 +1,131 @@
+.heading-top
+{
+	width: 100%;
+	height: 500px;
+	background-image: url('../images/topimage.jpg');
+	background-size: cover;
+	text-align: center;
+}
+
+.heading-title
+{
+	font-style: italic;
+	font-size: 55px;
+	font-family: cursive;
+	line-height: 500px;
+	color: white;
+
+
+}
+
+.heading-top img
+{
+	width: 100%;
+	height: 100%;
+}
+
+.heading-bottom
+{
+	width: 100%;
+	height: 40px;
+}
+
+.item-list
+{
+	clear: both;
+}
+
+.item-row
+{
+	height: 350px;
+	width: 80%;
+	margin: auto;
+}
+
+.item-column
+{
+	border: solid 1px white;
+	float: left;
+	width: 30%;
+	padding: 10px;
+	background-color: #cccccc;
+}
+
+.item-top
+{
+	height: 200px;
+	background-color: white;
+	margin: auto;
+}
+
+.item-bottom
+{
+	height: 100px;
+	background-color: yellow;
+	margin-top: 10px;
+}
+
+.survey
+{
+	padding: 50px;
+	width: 1000px;
+	margin: auto;
+}
+
+.survey h2
+{
+	/*padding: 30px 0;*/
+}
+
+.required
+{
+	color: red;
+}
+
+.form-bold
+{
+	font-weight: bold;
+}
+
+.survey .form-submit
+{
+	padding: 20px 100px;
+	clear: left;
+	font-size: 20px;
+}
+
+.submit-wrapper
+{
+	text-align: center;
+}
+
+.survey .form-group
+{
+	margin-bottom: 30px;
+}
+
+.checkbox-wrapper
+{
+	margin-bottom: 30px;
+}
+
+.checkbox
+
+.checkbox label
+{
+	line-height: 40px;
+}
+
+
+.video-wrapper
+{
+	padding-top: 80px;
+	padding-bottom: 20px;
+	width: 80%;
+	margin: auto;
+}
+
+video
+{
+	width: 100%;
+}

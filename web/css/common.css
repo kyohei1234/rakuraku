@@ -1,0 +1,263 @@
+html, body
+{
+  height: 100%;
+  margin: 0;
+}
+
+body
+{
+  font-family: 'Lucida Grande', Meiryo, sans-serif;
+}
+
+main
+{
+  padding-bottom: 83px;
+}
+
+.rakuraku-main
+{
+  margin-bottom: 30px;
+}
+
+.row
+{
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#contents
+{
+  min-height: 100%;
+  position: relative;
+}
+
+#top-header
+{
+  color: rgb(255, 237, 237);
+  width: 100%;
+  height: 60px;
+}
+
+.top-header-inner
+{
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  z-index: 1;
+  background-color: #E97373;
+  border-bottom: 2px solid transparent;
+  box-shadow: 0px 1px 1px rgba(255,255,255,0.3);
+}
+
+#top-header a
+{
+  color: rgb(255, 237, 237);
+}
+
+.top-header-title
+{
+  position: absolute;
+  left: 10%;
+  line-height: 60px;
+  font-size: 35px;
+}
+
+.top-header-title a
+{
+  color: white;
+}
+
+.top-header-menu
+{
+  float: right;
+  padding-right: 30px;
+  line-height: 60px;
+}
+
+.menu-item
+{
+  float:  left;
+  font-size: 16px;
+}
+
+.menu-item a
+{
+  color: white;
+  display: block;
+  padding: 0 10px;
+}
+
+#top-footer
+{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 20px 0;
+  color: #E97373;
+  background-color: rgb(255, 237, 237);
+}
+
+.top-footer-title
+{
+  padding: 0 30px;
+  font-size: 30px;
+  float: left;
+}
+
+.top-footer-menu
+{
+  float: right;
+  padding-right: 30px;
+}
+
+.footer-menu-item
+{
+  float: left;
+  padding: 0 20px;
+  line-height: 43px;
+}
+
+/*kousinkun*/
+
+.color-box
+{
+  width: 3em;
+  height: 3em;
+}
+
+.select-color .radio-inline input[type="radio"]
+{
+  margin-top: 1.3em;
+}
+
+.select-font .radio-inline input[type="radio"]
+{
+  margin-top: 0.7em;
+}
+
+
+.radio-inline
+{
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px !important;
+}
+
+.font-radio
+{
+  font-size: 25px;
+}
+
+.source
+{
+  margin: 30px 0;
+  padding: 30px;
+  background-color: #f8f8f8;
+}
+
+.contents-wrapper
+{
+  padding: 40px;
+}
+
+/*survey*/
+
+.survey-title
+{
+  color: #5F4B2D;
+}
+
+.survey-title
+{
+  padding-top: 50px;
+  text-align: center;
+}
+
+.survey-title h2
+{
+  color: #E97373;
+}
+
+.survey-thank
+{
+  padding: 100px 0;
+  text-align: center;
+}
+
+.survey-thank i
+{
+  font-size: 100px;
+  margin-bottom: 50px;
+  color: #ed7000;
+}
+
+/*nyuryokun*/
+.nyuryokun-video
+{
+  width: 100%;
+}
+
+.nyuryokun-video-wrapper
+{
+  padding: 50px 0;
+  width: 80%;
+  margin: auto;
+}
+
+.characteristics
+{
+  color: #5F4B2D;
+  background-color: rgba(255, 243, 232, 1);
+}
+
+.characteristics img
+{
+  width: 60%;
+  border-radius: 5px;
+  padding-bottom: 20px;
+}
+
+.characteristics i
+{
+  font-size: 5em;
+  color: #E97373;
+}
+
+.characteristics
+{
+  padding: 50px 0;
+  text-align: center;
+}
+
+.down-arrow
+{
+  padding: 30px 0;
+}
+
+/*form*/
+
+.form_error
+{
+  color: red;
+  font-size: 11px;
+}
+
+/*buttons*/
+
+.btn
+{
+  padding: 10px 90px;
+  display: inline-block;
+  background-color: rgba(237, 112, 0, 0.7);
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.btn:hover
+{
+  color: white;
+}
