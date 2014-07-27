@@ -1,3 +1,4 @@
+
 <?php $clock_img_tag = image_tag($clock_image, 'absolute=true') ?>
 
 <div class="contents-wrapper">
@@ -12,9 +13,11 @@
         <div class="rakuraku-date-value"></div>
         <div class="rakuraku-date-unit">日</div>
         <div class="rakuraku-updated">更新！</div>
+
       </div>
     </div>
   </div>
+
 
   <div>以下のソースコードをコピーして貼り付けると、上のらくらく更新くんを表示できます。</div>
   <div class="source">
@@ -31,6 +34,7 @@
             <div class="rakuraku-date-value"></div>
             <div class="rakuraku-date-unit">日</div>
             <div class="rakuraku-updated">更新！</div>
+
           </div>
         </div>
       </div>
@@ -38,12 +42,14 @@
       '.
       "
         <script>
+
         $('.rakuraku-main-wrapper *').css({'-webkit-box-sizing':'border-box', 'box-sizing':'border-box'});
         $('.rakuraku-main').css({'font-size':'25px', 'display':'inline-block', 'padding':'4px 15px', 'height':'50px', 'border': '$border'});
 
         $('.rakuraku-kousin-main').css({'display':'inline-block', 'color': '$font_color', 'font-family': '$font_family', 'vertical-align':'super'});
         $('.rakuraku-clock-preview').css({'vertical-align':'super', 'display':'inline-block'});
         $('.rakuraku-kousin-main div').css({'float':'left'});
+
         function Koushin()
         {
           this.year;
@@ -59,8 +65,10 @@
           koushin.date = localtime.getDate();
           koushin.day = localtime.getDay();
           getLastWorkDate(koushin);
+
           $('.rakuraku-month-value').html(koushin.month);
           $('.rakuraku-date-value').html(koushin.date);
+
         });
         function getLastWorkDate(koushin)
         {
@@ -117,6 +125,7 @@
 
 
   <script>
+
   var border = '<?php echo $border ?>';
   var font_color = '<?php echo $font_color ?>';
   var font_family = '<?php echo $font_family ?>';
@@ -151,6 +160,7 @@
 
 
 
+
     //更新日のクラス
     function Koushin()
     {
@@ -181,8 +191,10 @@
 
 
       //表示
+
       $('.rakuraku-month-value').html(koushin.month);
       $('.rakuraku-date-value').html(koushin.date);
+
 
       console.log($('.month-value').css('all'));
     });

@@ -3,6 +3,7 @@
 <div>
 	<article class="survey">
 		<div class="surver-wrapper">
+
 			<h2>✰✰らくらく更新くん✰✰</h2>
 			<?php echo form_tag('@kousinkun_show', array('class' => 'form-horizontal')) ?>
 
@@ -38,6 +39,7 @@
           <?php foreach (KousinkunUtil::$clock_image_array as $image_key => $image_value): ?>
           <label class="radio-inline clock-inline"><?php echo radiobutton_tag('clock_image', $image_key, $sf_params->get('clock_image') == $image_key) ?><div class="clock-image" data-image = "<?php echo $image_value ?>"><?php echo image_tag($image_value, 'absolute=true') ?></div></label>
           <?php endforeach ?>
+
         </div>
       </div>
 
@@ -76,15 +78,11 @@
       	<button type="submit" class="btn btn-success form-submit">送信</button>
       </div>
 
-
-
-
-
-
 			</form>
 		</div>
 	</article>
 </div>
+
 
 
 <script>
