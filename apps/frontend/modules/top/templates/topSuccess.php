@@ -1,11 +1,9 @@
 <?php use_helper('Validation') ?>
 <section class="top-video">
 	<div class="video-wrapper">
-<<<<<<< HEAD
+
 		<video src="videos/movietest.mp4" loop autoplay controls>
-=======
-		<video src="videos/movie2.mp4" loop autoplay>
->>>>>>> 2e737f021ffbe0c35a7da4ca51d7e57b473b667c
+
 		</video>
 	</div>
 </section>
@@ -97,8 +95,4 @@
         <p>人気のある商品をリストにして順番に！</p>
       </div>
     </div>
-<<<<<<< HEAD
   </section>
-=======
-  </section>
->>>>>>> 2e737f021ffbe0c35a7da4ca51d7e57b473b667c
