@@ -67,10 +67,18 @@ main
 
 .top-header-title
 {
-  position: absolute;
-  left: 10%;
+  float: left;
+  padding-left: 10%;
   line-height: 60px;
   font-size: 35px;
+}
+
+.top-header-explanation
+{
+  float: left;
+  font-size: 17px;
+  line-height: 60px;
+  padding-left: 2%;
 }
 
 .top-header-title a
