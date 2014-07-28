@@ -21,7 +21,10 @@
     <!-- ヘッダー -->
     <header id="top-header">
       <div class="top-header-inner">
-        <div class="top-header-title"><?php echo link_to('Akasaka Web Service', '@homepage') ?></div>
+        <div class="top-header-title">
+          <?php echo link_to('Akasaka Web Service', '@homepage') ?>
+        </div>
+        <div class="top-header-explanation">-楽天の店舗運営を簡単に-</div>
         <nav class="top-header-menu">
           <!-- ログイン時 -->
           <?php if ($sf_user->isAuthenticated()) : ?>
