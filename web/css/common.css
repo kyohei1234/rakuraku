@@ -23,6 +23,13 @@ main
   margin-bottom: 0;
 }
 
+.wrapper
+{
+  width: 80%;
+  margin: 0 auto;
+  height: auto;
+}
+
 #contents
 {
   min-height: 100%;
@@ -200,10 +207,25 @@ main
   margin: auto;
 }
 
+.characteristics-wrapper
+{
+  background-color: rgba(255, 243, 232, 1);
+}
+
 .characteristics
 {
   color: #5F4B2D;
-  background-color: rgba(255, 243, 232, 1);
+}
+
+.characteristics h2
+{
+  color: #E97373;
+  font-size: 40px;
+}
+
+.characteristics p
+{
+  font-size: 17px;
 }
 
 .characteristics img

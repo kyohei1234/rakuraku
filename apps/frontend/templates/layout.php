@@ -14,6 +14,8 @@
 
 <body id="top-body">
 
+  <?php include_partial('global/google_analytics') ?>
+
   <div id="contents">
 
     <!-- ヘッダー -->

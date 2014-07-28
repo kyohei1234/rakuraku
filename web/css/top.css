@@ -52,6 +52,13 @@ li
   font-weight: 100;
 }
 
+
+.top-article p
+{
+  font-size: 17px;
+}
+
+
 #top-header
 {
   background: transparent;
@@ -251,9 +258,11 @@ body:not(.scrolling) #top-header
 {
   color: #5F4B2D;
   height: 108px;
-  display: table-cell;
-  vertical-align: middle;
+  /* display: table-cell; */
+  /* vertical-align: middle; */
   text-align: center;
+  font-size: 30px;
+  line-height: 108px;
 }
 
 .top-characteristics h2,
