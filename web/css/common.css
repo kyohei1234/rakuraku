@@ -14,7 +14,13 @@ main
   padding-bottom: 83px;
 }
 
-.row 
+
+.rakuraku-main
+{
+  margin-bottom: 30px;
+}
+
+.row
 {
   width: 100%;
   margin-left: auto;
@@ -144,6 +150,9 @@ main
 .radio-inline
 {
   margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px !important;
+
 }
 
 .font-radio

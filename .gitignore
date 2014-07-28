@@ -7,4 +7,8 @@ data/sql/*
 .DS_Store
 web/.htaccess
 .tags
+<<<<<<< HEAD
+web/videos/*
+=======
 
+>>>>>>> 2e737f021ffbe0c35a7da4ca51d7e57b473b667c

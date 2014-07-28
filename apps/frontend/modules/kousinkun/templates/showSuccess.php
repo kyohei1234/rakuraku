@@ -1,32 +1,40 @@
+
+<?php $clock_img_tag = image_tag($clock_image, 'absolute=true') ?>
+
 <div class="contents-wrapper">
 
   <div class="main-wrapper">
-    <div class="main">
-      <i class="fa fa-clock-o"></i>
-      <div class="kousin-main">
-        <div class="month-value"></div>
-        <div class="month-unit">月</div>
-        <div class="date-value"></div>
-        <div class="date-unit">日</div>
-        <div class="updated">更新！</div>
+    <div class="rakuraku-main">
+      <!-- <i class="fa fa-clock-o"></i> -->
+      <div class="rakuraku-clock-preview"><?php echo $clock_img_tag ?></div>
+      <div class="rakuraku-kousin-main">
+        <div class="rakuraku-month-value"></div>
+        <div class="rakuraku-month-unit">月</div>
+        <div class="rakuraku-date-value"></div>
+        <div class="rakuraku-date-unit">日</div>
+        <div class="rakuraku-updated">更新！</div>
+
       </div>
     </div>
   </div>
 
-  <div>以下のソースコードをコピーして貼り付けると、上の楽々更新くんを表示できます。</div>
+
+  <div>以下のソースコードをコピーして貼り付けると、上のらくらく更新くんを表示できます。</div>
   <div class="source">
     <?php echo htmlspecialchars(trim(
       '
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
       <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-      <div class="main-wrapper">
-        <div class="main">
-          <i class="fa fa-clock-o"></i>
-          <div class="kousin-main">
-            <div class="month-value"></div>
-            <div class="month-unit">月</div>
-            <div class="date-value"></div>
-            <div class="date-unit">日</div>
-            <div class="updated">更新！</div>
+      <div class="rakuraku-main-wrapper">
+        <div class="rakuraku-main">
+        <div class="rakuraku-clock-preview">'.$clock_img_tag.'</div>
+          <div class="rakuraku-kousin-main">
+            <div class="rakuraku-month-value"></div>
+            <div class="rakuraku-month-unit">月</div>
+            <div class="rakuraku-date-value"></div>
+            <div class="rakuraku-date-unit">日</div>
+            <div class="rakuraku-updated">更新！</div>
+
           </div>
         </div>
       </div>
@@ -34,12 +42,14 @@
       '.
       "
         <script>
-        $('.main').css({'font-size':'25px', 'display':'inline-block', 'padding':'0 15px', 'height':'50px', 'border': $border});
-        $('.main-wrapper').css({'padding':'60px'});
 
-        $('.kousin-main').css({'display':'inline-block', 'color': $font_color, 'font-family': $font_family'});
-        $('.fa-clock-o').css({'vertical-align':'super', 'color': $clock_color, 'line-height':'50px', 'font-size':'27px'});
-        $('.kousin-main div').css({'float':'left'});
+        $('.rakuraku-main-wrapper *').css({'-webkit-box-sizing':'border-box', 'box-sizing':'border-box'});
+        $('.rakuraku-main').css({'font-size':'25px', 'display':'inline-block', 'padding':'4px 15px', 'height':'50px', 'border': '$border'});
+
+        $('.rakuraku-kousin-main').css({'display':'inline-block', 'color': '$font_color', 'font-family': '$font_family', 'vertical-align':'super'});
+        $('.rakuraku-clock-preview').css({'vertical-align':'super', 'display':'inline-block'});
+        $('.rakuraku-kousin-main div').css({'float':'left'});
+
         function Koushin()
         {
           this.year;
@@ -55,10 +65,10 @@
           koushin.date = localtime.getDate();
           koushin.day = localtime.getDay();
           getLastWorkDate(koushin);
-          $('.month-value').html(koushin.month);
-          $('.date-value').html(koushin.date);
 
-          console.log($('.month-value').css('all'));
+          $('.rakuraku-month-value').html(koushin.month);
+          $('.rakuraku-date-value').html(koushin.date);
+
         });
         function getLastWorkDate(koushin)
         {
@@ -115,15 +125,41 @@
 
 
   <script>
-    $('.main').css({'font-size':'25px', 'display':'inline-block', 'padding':'0 15px', 'height':'50px', 'border': '<?php echo $border ?>'});
 
-    $('.main-wrapper').css({'padding':'60px'});
+  var border = '<?php echo $border ?>';
+  var font_color = '<?php echo $font_color ?>';
+  var font_family = '<?php echo $font_family ?>';
+  // var clock_image = '<?php echo $clock_image ?>';
+  addCss(border, font_color, font_family);
 
-    $('.kousin-main').css({'display':'inline-block', 'color':'<?php echo $font_color ?>', 'font-family':'<?php echo $font_family ?>'});
-    $('.fa-clock-o').css({'vertical-align':'super', 'color':'<?php echo $clock_color ?>', 'line-height':'50px', 'font-size':'27px'});
+
+  function addCss(border, font_color, font_family, clock_color){
+    if (typeof border === 'undefined') {
+      border === '0px';
+    };
+    if (typeof font_color === 'undefined') {
+      font_color === 'black';
+    };
+    if (typeof font_family === 'undefined') {
+      font_family === 'serif';
+    };
+    // if (typeof clock_color === 'undefined') {
+    //   clock_color === 'black';
+    // };
+    $('.rakuraku-main').css({'font-size':'25px', 'display':'inline-block', 'padding':'4px 15px', 'height':'50px', 'border': border});
+
+    $('.rakuraku-main-wrapper').css({'padding':'60px'});
+
+    $('.rakuraku-kousin-main').css({'display':'inline-block', 'color': font_color, 'font-family': font_family});
+    // $('.fa-clock-o').css({'vertical-align':'super', 'color': clock_color, 'line-height':'50px', 'font-size':'27px'});
+    $('.rakuraku-clock-preview').css({'vertical-align':'super', 'display':'inline-block'});
 
 
-    $('.kousin-main div').css({'float':'left'});
+    $('.rakuraku-kousin-main div').css({'float':'left'});
+  }
+
+
+
 
     //更新日のクラス
     function Koushin()
@@ -155,8 +191,10 @@
 
 
       //表示
-      $('.month-value').html(koushin.month);
-      $('.date-value').html(koushin.date);
+
+      $('.rakuraku-month-value').html(koushin.month);
+      $('.rakuraku-date-value').html(koushin.date);
+
 
       console.log($('.month-value').css('all'));
     });

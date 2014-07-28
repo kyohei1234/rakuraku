@@ -1,4 +1,5 @@
 <?php use_helper('Validation') ?>
+
 <article class="top-article">
   <section class="top-video">
   	<div class="video-wrapper">
@@ -85,5 +86,10 @@
           <p>人気のある商品をリストにして順番に！</p>
         </div>
       </div>
+<<<<<<< HEAD
     </section>
   </article>
+=======
+    </div>
+  </section>
+>>>>>>> c55c906d9237d5e478689cabc58fcd00bc8e77e9
