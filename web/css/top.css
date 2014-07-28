@@ -26,6 +26,11 @@
   margin-bottom: 0;
 }
 
+video
+{
+  height: 550px;
+}
+
 /*html, body*/
 
 html, body
