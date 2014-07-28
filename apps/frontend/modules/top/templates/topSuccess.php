@@ -3,7 +3,7 @@
 <article class="top-article">
   <section class="top-video">
   	<div class="video-wrapper">
-  		<video src="videos/movie4.4.avi" loop autoplay>
+  		<video src="videos/movie6.mp4" loop autoplay>
   		</video>
   	</div>
   </section>
