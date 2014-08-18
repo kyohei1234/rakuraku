@@ -1,2 +1,5 @@
 show:
   is_secure: off
+
+edit:
+  is_secure: off

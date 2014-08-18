@@ -1,7 +1,7 @@
 <?php
 
 
-abstract class BaseUser extends BaseObject  implements Persistent {
+abstract class BaseTemplate extends BaseObject  implements Persistent {
 
 
 	
@@ -9,11 +9,7 @@ abstract class BaseUser extends BaseObject  implements Persistent {
 
 
 	
-	protected $name;
-
-
-	
-	protected $email;
+	protected $user_id;
 
 
 	
@@ -32,16 +28,13 @@ abstract class BaseUser extends BaseObject  implements Persistent {
 	protected $id;
 
 	
+	protected $aUser;
+
+	
 	protected $collItems;
 
 	
 	protected $lastItemCriteria = null;
-
-	
-	protected $collTemplates;
-
-	
-	protected $lastTemplateCriteria = null;
 
 	
 	protected $alreadyInSave = false;
@@ -50,17 +43,10 @@ abstract class BaseUser extends BaseObject  implements Persistent {
 	protected $alreadyInValidation = false;
 
 	
-	public function getName()
+	public function getUserId()
 	{
 
-		return $this->name;
-	}
-
-	
-	public function getEmail()
-	{
-
-		return $this->email;
+		return $this->user_id;
 	}
 
 	
@@ -122,30 +108,20 @@ abstract class BaseUser extends BaseObject  implements Persistent {
 	}
 
 	
-	public function setName($v)
+	public function setUserId($v)
 	{
 
-						if ($v !== null && !is_string($v)) {
-			$v = (string) $v; 
+						if ($v !== null && !is_int($v) && is_numeric($v)) {
+			$v = (int) $v;
 		}
 
-		if ($this->name !== $v) {
-			$this->name = $v;
-			$this->modifiedColumns[] = UserPeer::NAME;
+		if ($this->user_id !== $v) {
+			$this->user_id = $v;
+			$this->modifiedColumns[] = TemplatePeer::USER_ID;
 		}
 
-	} 
-	
-	public function setEmail($v)
-	{
-
-						if ($v !== null && !is_string($v)) {
-			$v = (string) $v; 
-		}
-
-		if ($this->email !== $v) {
-			$this->email = $v;
-			$this->modifiedColumns[] = UserPeer::EMAIL;
+		if ($this->aUser !== null && $this->aUser->getId() !== $v) {
+			$this->aUser = null;
 		}
 
 	} 
@@ -159,7 +135,7 @@ abstract class BaseUser extends BaseObject  implements Persistent {
 
 		if ($this->display !== $v) {
 			$this->display = $v;
-			$this->modifiedColumns[] = UserPeer::DISPLAY;
+			$this->modifiedColumns[] = TemplatePeer::DISPLAY;
 		}
 
 	} 
@@ -176,7 +152,7 @@ abstract class BaseUser extends BaseObject  implements Persistent {
 		}
 		if ($this->created_at !== $ts) {
 			$this->created_at = $ts;
-			$this->modifiedColumns[] = UserPeer::CREATED_AT;
+			$this->modifiedColumns[] = TemplatePeer::CREATED_AT;
 		}
 
 	} 
@@ -193,7 +169,7 @@ abstract class BaseUser extends BaseObject  implements Persistent {
 		}
 		if ($this->updated_at !== $ts) {
 			$this->updated_at = $ts;
-			$this->modifiedColumns[] = UserPeer::UPDATED_AT;
+			$this->modifiedColumns[] = TemplatePeer::UPDATED_AT;
 		}
 
 	} 
@@ -207,7 +183,7 @@ abstract class BaseUser extends BaseObject  implements Persistent {
 
 		if ($this->id !== $v) {
 			$this->id = $v;
-			$this->modifiedColumns[] = UserPeer::ID;
+			$this->modifiedColumns[] = TemplatePeer::ID;
 		}
 
 	} 
@@ -216,25 +192,23 @@ abstract class BaseUser extends BaseObject  implements Persistent {
 	{
 		try {
 
-			$this->name = $rs->getString($startcol + 0);
+			$this->user_id = $rs->getInt($startcol + 0);
 
-			$this->email = $rs->getString($startcol + 1);
+			$this->display = $rs->getInt($startcol + 1);
 
-			$this->display = $rs->getInt($startcol + 2);
+			$this->created_at = $rs->getTimestamp($startcol + 2, null);
 
-			$this->created_at = $rs->getTimestamp($startcol + 3, null);
+			$this->updated_at = $rs->getTimestamp($startcol + 3, null);
 
-			$this->updated_at = $rs->getTimestamp($startcol + 4, null);
-
-			$this->id = $rs->getInt($startcol + 5);
+			$this->id = $rs->getInt($startcol + 4);
 
 			$this->resetModified();
 
 			$this->setNew(false);
 
-						return $startcol + 6; 
+						return $startcol + 5; 
 		} catch (Exception $e) {
-			throw new PropelException("Error populating User object", $e);
+			throw new PropelException("Error populating Template object", $e);
 		}
 	}
 
@@ -246,12 +220,12 @@ abstract class BaseUser extends BaseObject  implements Persistent {
 		}
 
 		if ($con === null) {
-			$con = Propel::getConnection(UserPeer::DATABASE_NAME);
+			$con = Propel::getConnection(TemplatePeer::DATABASE_NAME);
 		}
 
 		try {
 			$con->begin();
-			UserPeer::doDelete($this, $con);
+			TemplatePeer::doDelete($this, $con);
 			$this->setDeleted(true);
 			$con->commit();
 		} catch (PropelException $e) {
@@ -263,12 +237,12 @@ abstract class BaseUser extends BaseObject  implements Persistent {
 	
 	public function save($con = null)
 	{
-    if ($this->isNew() && !$this->isColumnModified(UserPeer::CREATED_AT))
+    if ($this->isNew() && !$this->isColumnModified(TemplatePeer::CREATED_AT))
     {
       $this->setCreatedAt(time());
     }
 
-    if ($this->isModified() && !$this->isColumnModified(UserPeer::UPDATED_AT))
+    if ($this->isModified() && !$this->isColumnModified(TemplatePeer::UPDATED_AT))
     {
       $this->setUpdatedAt(time());
     }
@@ -278,7 +252,7 @@ abstract class BaseUser extends BaseObject  implements Persistent {
 		}
 
 		if ($con === null) {
-			$con = Propel::getConnection(UserPeer::DATABASE_NAME);
+			$con = Propel::getConnection(TemplatePeer::DATABASE_NAME);
 		}
 
 		try {
@@ -299,27 +273,28 @@ abstract class BaseUser extends BaseObject  implements Persistent {
 			$this->alreadyInSave = true;
 
 
+												
+			if ($this->aUser !== null) {
+				if ($this->aUser->isModified()) {
+					$affectedRows += $this->aUser->save($con);
+				}
+				$this->setUser($this->aUser);
+			}
+
+
 						if ($this->isModified()) {
 				if ($this->isNew()) {
-					$pk = UserPeer::doInsert($this, $con);
+					$pk = TemplatePeer::doInsert($this, $con);
 					$affectedRows += 1; 										 										 
 					$this->setId($pk);  
 					$this->setNew(false);
 				} else {
-					$affectedRows += UserPeer::doUpdate($this, $con);
+					$affectedRows += TemplatePeer::doUpdate($this, $con);
 				}
 				$this->resetModified(); 			}
 
 			if ($this->collItems !== null) {
 				foreach($this->collItems as $referrerFK) {
-					if (!$referrerFK->isDeleted()) {
-						$affectedRows += $referrerFK->save($con);
-					}
-				}
-			}
-
-			if ($this->collTemplates !== null) {
-				foreach($this->collTemplates as $referrerFK) {
 					if (!$referrerFK->isDeleted()) {
 						$affectedRows += $referrerFK->save($con);
 					}
@@ -362,21 +337,21 @@ abstract class BaseUser extends BaseObject  implements Persistent {
 			$failureMap = array();
 
 
-			if (($retval = UserPeer::doValidate($this, $columns)) !== true) {
+												
+			if ($this->aUser !== null) {
+				if (!$this->aUser->validate($columns)) {
+					$failureMap = array_merge($failureMap, $this->aUser->getValidationFailures());
+				}
+			}
+
+
+			if (($retval = TemplatePeer::doValidate($this, $columns)) !== true) {
 				$failureMap = array_merge($failureMap, $retval);
 			}
 
 
 				if ($this->collItems !== null) {
 					foreach($this->collItems as $referrerFK) {
-						if (!$referrerFK->validate($columns)) {
-							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
-						}
-					}
-				}
-
-				if ($this->collTemplates !== null) {
-					foreach($this->collTemplates as $referrerFK) {
 						if (!$referrerFK->validate($columns)) {
 							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
 						}
@@ -393,7 +368,7 @@ abstract class BaseUser extends BaseObject  implements Persistent {
 	
 	public function getByName($name, $type = BasePeer::TYPE_PHPNAME)
 	{
-		$pos = UserPeer::translateFieldName($name, $type, BasePeer::TYPE_NUM);
+		$pos = TemplatePeer::translateFieldName($name, $type, BasePeer::TYPE_NUM);
 		return $this->getByPosition($pos);
 	}
 
@@ -402,21 +377,18 @@ abstract class BaseUser extends BaseObject  implements Persistent {
 	{
 		switch($pos) {
 			case 0:
-				return $this->getName();
+				return $this->getUserId();
 				break;
 			case 1:
-				return $this->getEmail();
-				break;
-			case 2:
 				return $this->getDisplay();
 				break;
-			case 3:
+			case 2:
 				return $this->getCreatedAt();
 				break;
-			case 4:
+			case 3:
 				return $this->getUpdatedAt();
 				break;
-			case 5:
+			case 4:
 				return $this->getId();
 				break;
 			default:
@@ -427,14 +399,13 @@ abstract class BaseUser extends BaseObject  implements Persistent {
 	
 	public function toArray($keyType = BasePeer::TYPE_PHPNAME)
 	{
-		$keys = UserPeer::getFieldNames($keyType);
+		$keys = TemplatePeer::getFieldNames($keyType);
 		$result = array(
-			$keys[0] => $this->getName(),
-			$keys[1] => $this->getEmail(),
-			$keys[2] => $this->getDisplay(),
-			$keys[3] => $this->getCreatedAt(),
-			$keys[4] => $this->getUpdatedAt(),
-			$keys[5] => $this->getId(),
+			$keys[0] => $this->getUserId(),
+			$keys[1] => $this->getDisplay(),
+			$keys[2] => $this->getCreatedAt(),
+			$keys[3] => $this->getUpdatedAt(),
+			$keys[4] => $this->getId(),
 		);
 		return $result;
 	}
@@ -442,7 +413,7 @@ abstract class BaseUser extends BaseObject  implements Persistent {
 	
 	public function setByName($name, $value, $type = BasePeer::TYPE_PHPNAME)
 	{
-		$pos = UserPeer::translateFieldName($name, $type, BasePeer::TYPE_NUM);
+		$pos = TemplatePeer::translateFieldName($name, $type, BasePeer::TYPE_NUM);
 		return $this->setByPosition($pos, $value);
 	}
 
@@ -451,21 +422,18 @@ abstract class BaseUser extends BaseObject  implements Persistent {
 	{
 		switch($pos) {
 			case 0:
-				$this->setName($value);
+				$this->setUserId($value);
 				break;
 			case 1:
-				$this->setEmail($value);
-				break;
-			case 2:
 				$this->setDisplay($value);
 				break;
-			case 3:
+			case 2:
 				$this->setCreatedAt($value);
 				break;
-			case 4:
+			case 3:
 				$this->setUpdatedAt($value);
 				break;
-			case 5:
+			case 4:
 				$this->setId($value);
 				break;
 		} 	}
@@ -473,27 +441,25 @@ abstract class BaseUser extends BaseObject  implements Persistent {
 	
 	public function fromArray($arr, $keyType = BasePeer::TYPE_PHPNAME)
 	{
-		$keys = UserPeer::getFieldNames($keyType);
+		$keys = TemplatePeer::getFieldNames($keyType);
 
-		if (array_key_exists($keys[0], $arr)) $this->setName($arr[$keys[0]]);
-		if (array_key_exists($keys[1], $arr)) $this->setEmail($arr[$keys[1]]);
-		if (array_key_exists($keys[2], $arr)) $this->setDisplay($arr[$keys[2]]);
-		if (array_key_exists($keys[3], $arr)) $this->setCreatedAt($arr[$keys[3]]);
-		if (array_key_exists($keys[4], $arr)) $this->setUpdatedAt($arr[$keys[4]]);
-		if (array_key_exists($keys[5], $arr)) $this->setId($arr[$keys[5]]);
+		if (array_key_exists($keys[0], $arr)) $this->setUserId($arr[$keys[0]]);
+		if (array_key_exists($keys[1], $arr)) $this->setDisplay($arr[$keys[1]]);
+		if (array_key_exists($keys[2], $arr)) $this->setCreatedAt($arr[$keys[2]]);
+		if (array_key_exists($keys[3], $arr)) $this->setUpdatedAt($arr[$keys[3]]);
+		if (array_key_exists($keys[4], $arr)) $this->setId($arr[$keys[4]]);
 	}
 
 	
 	public function buildCriteria()
 	{
-		$criteria = new Criteria(UserPeer::DATABASE_NAME);
+		$criteria = new Criteria(TemplatePeer::DATABASE_NAME);
 
-		if ($this->isColumnModified(UserPeer::NAME)) $criteria->add(UserPeer::NAME, $this->name);
-		if ($this->isColumnModified(UserPeer::EMAIL)) $criteria->add(UserPeer::EMAIL, $this->email);
-		if ($this->isColumnModified(UserPeer::DISPLAY)) $criteria->add(UserPeer::DISPLAY, $this->display);
-		if ($this->isColumnModified(UserPeer::CREATED_AT)) $criteria->add(UserPeer::CREATED_AT, $this->created_at);
-		if ($this->isColumnModified(UserPeer::UPDATED_AT)) $criteria->add(UserPeer::UPDATED_AT, $this->updated_at);
-		if ($this->isColumnModified(UserPeer::ID)) $criteria->add(UserPeer::ID, $this->id);
+		if ($this->isColumnModified(TemplatePeer::USER_ID)) $criteria->add(TemplatePeer::USER_ID, $this->user_id);
+		if ($this->isColumnModified(TemplatePeer::DISPLAY)) $criteria->add(TemplatePeer::DISPLAY, $this->display);
+		if ($this->isColumnModified(TemplatePeer::CREATED_AT)) $criteria->add(TemplatePeer::CREATED_AT, $this->created_at);
+		if ($this->isColumnModified(TemplatePeer::UPDATED_AT)) $criteria->add(TemplatePeer::UPDATED_AT, $this->updated_at);
+		if ($this->isColumnModified(TemplatePeer::ID)) $criteria->add(TemplatePeer::ID, $this->id);
 
 		return $criteria;
 	}
@@ -501,9 +467,9 @@ abstract class BaseUser extends BaseObject  implements Persistent {
 	
 	public function buildPkeyCriteria()
 	{
-		$criteria = new Criteria(UserPeer::DATABASE_NAME);
+		$criteria = new Criteria(TemplatePeer::DATABASE_NAME);
 
-		$criteria->add(UserPeer::ID, $this->id);
+		$criteria->add(TemplatePeer::ID, $this->id);
 
 		return $criteria;
 	}
@@ -524,9 +490,7 @@ abstract class BaseUser extends BaseObject  implements Persistent {
 	public function copyInto($copyObj, $deepCopy = false)
 	{
 
-		$copyObj->setName($this->name);
-
-		$copyObj->setEmail($this->email);
+		$copyObj->setUserId($this->user_id);
 
 		$copyObj->setDisplay($this->display);
 
@@ -540,10 +504,6 @@ abstract class BaseUser extends BaseObject  implements Persistent {
 
 			foreach($this->getItems() as $relObj) {
 				$copyObj->addItem($relObj->copy($deepCopy));
-			}
-
-			foreach($this->getTemplates() as $relObj) {
-				$copyObj->addTemplate($relObj->copy($deepCopy));
 			}
 
 		} 
@@ -566,9 +526,38 @@ abstract class BaseUser extends BaseObject  implements Persistent {
 	public function getPeer()
 	{
 		if (self::$peer === null) {
-			self::$peer = new UserPeer();
+			self::$peer = new TemplatePeer();
 		}
 		return self::$peer;
+	}
+
+	
+	public function setUser($v)
+	{
+
+
+		if ($v === null) {
+			$this->setUserId(NULL);
+		} else {
+			$this->setUserId($v->getId());
+		}
+
+
+		$this->aUser = $v;
+	}
+
+
+	
+	public function getUser($con = null)
+	{
+		if ($this->aUser === null && ($this->user_id !== null)) {
+						include_once 'lib/model/om/BaseUserPeer.php';
+
+			$this->aUser = UserPeer::retrieveByPK($this->user_id, $con);
+
+			
+		}
+		return $this->aUser;
 	}
 
 	
@@ -596,7 +585,7 @@ abstract class BaseUser extends BaseObject  implements Persistent {
 			   $this->collItems = array();
 			} else {
 
-				$criteria->add(ItemPeer::USER_ID, $this->getId());
+				$criteria->add(ItemPeer::TEMPLATE_ID, $this->getId());
 
 				ItemPeer::addSelectColumns($criteria);
 				$this->collItems = ItemPeer::doSelect($criteria, $con);
@@ -605,7 +594,7 @@ abstract class BaseUser extends BaseObject  implements Persistent {
 						if (!$this->isNew()) {
 												
 
-				$criteria->add(ItemPeer::USER_ID, $this->getId());
+				$criteria->add(ItemPeer::TEMPLATE_ID, $this->getId());
 
 				ItemPeer::addSelectColumns($criteria);
 				if (!isset($this->lastItemCriteria) || !$this->lastItemCriteria->equals($criteria)) {
@@ -629,7 +618,7 @@ abstract class BaseUser extends BaseObject  implements Persistent {
 			$criteria = clone $criteria;
 		}
 
-		$criteria->add(ItemPeer::USER_ID, $this->getId());
+		$criteria->add(ItemPeer::TEMPLATE_ID, $this->getId());
 
 		return ItemPeer::doCount($criteria, $distinct, $con);
 	}
@@ -638,7 +627,42 @@ abstract class BaseUser extends BaseObject  implements Persistent {
 	public function addItem(Item $l)
 	{
 		$this->collItems[] = $l;
-		$l->setUser($this);
+		$l->setTemplate($this);
+	}
+
+
+	
+	public function getItemsJoinUser($criteria = null, $con = null)
+	{
+				include_once 'lib/model/om/BaseItemPeer.php';
+		if ($criteria === null) {
+			$criteria = new Criteria();
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		if ($this->collItems === null) {
+			if ($this->isNew()) {
+				$this->collItems = array();
+			} else {
+
+				$criteria->add(ItemPeer::TEMPLATE_ID, $this->getId());
+
+				$this->collItems = ItemPeer::doSelectJoinUser($criteria, $con);
+			}
+		} else {
+									
+			$criteria->add(ItemPeer::TEMPLATE_ID, $this->getId());
+
+			if (!isset($this->lastItemCriteria) || !$this->lastItemCriteria->equals($criteria)) {
+				$this->collItems = ItemPeer::doSelectJoinUser($criteria, $con);
+			}
+		}
+		$this->lastItemCriteria = $criteria;
+
+		return $this->collItems;
 	}
 
 
@@ -659,13 +683,13 @@ abstract class BaseUser extends BaseObject  implements Persistent {
 				$this->collItems = array();
 			} else {
 
-				$criteria->add(ItemPeer::USER_ID, $this->getId());
+				$criteria->add(ItemPeer::TEMPLATE_ID, $this->getId());
 
 				$this->collItems = ItemPeer::doSelectJoinItemRelatedByNextItemId($criteria, $con);
 			}
 		} else {
 									
-			$criteria->add(ItemPeer::USER_ID, $this->getId());
+			$criteria->add(ItemPeer::TEMPLATE_ID, $this->getId());
 
 			if (!isset($this->lastItemCriteria) || !$this->lastItemCriteria->equals($criteria)) {
 				$this->collItems = ItemPeer::doSelectJoinItemRelatedByNextItemId($criteria, $con);
@@ -674,111 +698,6 @@ abstract class BaseUser extends BaseObject  implements Persistent {
 		$this->lastItemCriteria = $criteria;
 
 		return $this->collItems;
-	}
-
-
-	
-	public function getItemsJoinTemplate($criteria = null, $con = null)
-	{
-				include_once 'lib/model/om/BaseItemPeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		if ($this->collItems === null) {
-			if ($this->isNew()) {
-				$this->collItems = array();
-			} else {
-
-				$criteria->add(ItemPeer::USER_ID, $this->getId());
-
-				$this->collItems = ItemPeer::doSelectJoinTemplate($criteria, $con);
-			}
-		} else {
-									
-			$criteria->add(ItemPeer::USER_ID, $this->getId());
-
-			if (!isset($this->lastItemCriteria) || !$this->lastItemCriteria->equals($criteria)) {
-				$this->collItems = ItemPeer::doSelectJoinTemplate($criteria, $con);
-			}
-		}
-		$this->lastItemCriteria = $criteria;
-
-		return $this->collItems;
-	}
-
-	
-	public function initTemplates()
-	{
-		if ($this->collTemplates === null) {
-			$this->collTemplates = array();
-		}
-	}
-
-	
-	public function getTemplates($criteria = null, $con = null)
-	{
-				include_once 'lib/model/om/BaseTemplatePeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		if ($this->collTemplates === null) {
-			if ($this->isNew()) {
-			   $this->collTemplates = array();
-			} else {
-
-				$criteria->add(TemplatePeer::USER_ID, $this->getId());
-
-				TemplatePeer::addSelectColumns($criteria);
-				$this->collTemplates = TemplatePeer::doSelect($criteria, $con);
-			}
-		} else {
-						if (!$this->isNew()) {
-												
-
-				$criteria->add(TemplatePeer::USER_ID, $this->getId());
-
-				TemplatePeer::addSelectColumns($criteria);
-				if (!isset($this->lastTemplateCriteria) || !$this->lastTemplateCriteria->equals($criteria)) {
-					$this->collTemplates = TemplatePeer::doSelect($criteria, $con);
-				}
-			}
-		}
-		$this->lastTemplateCriteria = $criteria;
-		return $this->collTemplates;
-	}
-
-	
-	public function countTemplates($criteria = null, $distinct = false, $con = null)
-	{
-				include_once 'lib/model/om/BaseTemplatePeer.php';
-		if ($criteria === null) {
-			$criteria = new Criteria();
-		}
-		elseif ($criteria instanceof Criteria)
-		{
-			$criteria = clone $criteria;
-		}
-
-		$criteria->add(TemplatePeer::USER_ID, $this->getId());
-
-		return TemplatePeer::doCount($criteria, $distinct, $con);
-	}
-
-	
-	public function addTemplate(Template $l)
-	{
-		$this->collTemplates[] = $l;
-		$l->setUser($this);
 	}
 
 } 

@@ -13,7 +13,7 @@ abstract class BaseUserPeer {
 	const CLASS_DEFAULT = 'lib.model.User';
 
 	
-	const NUM_COLUMNS = 3;
+	const NUM_COLUMNS = 6;
 
 	
 	const NUM_LAZY_LOAD_COLUMNS = 0;
@@ -26,6 +26,15 @@ abstract class BaseUserPeer {
 	const EMAIL = 'user.EMAIL';
 
 	
+	const DISPLAY = 'user.DISPLAY';
+
+	
+	const CREATED_AT = 'user.CREATED_AT';
+
+	
+	const UPDATED_AT = 'user.UPDATED_AT';
+
+	
 	const ID = 'user.ID';
 
 	
@@ -34,18 +43,18 @@ abstract class BaseUserPeer {
 
 	
 	private static $fieldNames = array (
-		BasePeer::TYPE_PHPNAME => array ('Name', 'Email', 'Id', ),
-		BasePeer::TYPE_COLNAME => array (UserPeer::NAME, UserPeer::EMAIL, UserPeer::ID, ),
-		BasePeer::TYPE_FIELDNAME => array ('name', 'email', 'id', ),
-		BasePeer::TYPE_NUM => array (0, 1, 2, )
+		BasePeer::TYPE_PHPNAME => array ('Name', 'Email', 'Display', 'CreatedAt', 'UpdatedAt', 'Id', ),
+		BasePeer::TYPE_COLNAME => array (UserPeer::NAME, UserPeer::EMAIL, UserPeer::DISPLAY, UserPeer::CREATED_AT, UserPeer::UPDATED_AT, UserPeer::ID, ),
+		BasePeer::TYPE_FIELDNAME => array ('name', 'email', 'display', 'created_at', 'updated_at', 'id', ),
+		BasePeer::TYPE_NUM => array (0, 1, 2, 3, 4, 5, )
 	);
 
 	
 	private static $fieldKeys = array (
-		BasePeer::TYPE_PHPNAME => array ('Name' => 0, 'Email' => 1, 'Id' => 2, ),
-		BasePeer::TYPE_COLNAME => array (UserPeer::NAME => 0, UserPeer::EMAIL => 1, UserPeer::ID => 2, ),
-		BasePeer::TYPE_FIELDNAME => array ('name' => 0, 'email' => 1, 'id' => 2, ),
-		BasePeer::TYPE_NUM => array (0, 1, 2, )
+		BasePeer::TYPE_PHPNAME => array ('Name' => 0, 'Email' => 1, 'Display' => 2, 'CreatedAt' => 3, 'UpdatedAt' => 4, 'Id' => 5, ),
+		BasePeer::TYPE_COLNAME => array (UserPeer::NAME => 0, UserPeer::EMAIL => 1, UserPeer::DISPLAY => 2, UserPeer::CREATED_AT => 3, UserPeer::UPDATED_AT => 4, UserPeer::ID => 5, ),
+		BasePeer::TYPE_FIELDNAME => array ('name' => 0, 'email' => 1, 'display' => 2, 'created_at' => 3, 'updated_at' => 4, 'id' => 5, ),
+		BasePeer::TYPE_NUM => array (0, 1, 2, 3, 4, 5, )
 	);
 
 	
@@ -102,6 +111,12 @@ abstract class BaseUserPeer {
 		$criteria->addSelectColumn(UserPeer::NAME);
 
 		$criteria->addSelectColumn(UserPeer::EMAIL);
+
+		$criteria->addSelectColumn(UserPeer::DISPLAY);
+
+		$criteria->addSelectColumn(UserPeer::CREATED_AT);
+
+		$criteria->addSelectColumn(UserPeer::UPDATED_AT);
 
 		$criteria->addSelectColumn(UserPeer::ID);
 
@@ -250,6 +265,7 @@ abstract class BaseUserPeer {
 		}
 		$affectedRows = 0; 		try {
 									$con->begin();
+			$affectedRows += UserPeer::doOnDeleteCascade(new Criteria(), $con);
 			$affectedRows += BasePeer::doDeleteAll(UserPeer::TABLE_NAME, $con);
 			$con->commit();
 			return $affectedRows;
@@ -280,7 +296,7 @@ abstract class BaseUserPeer {
 		$affectedRows = 0; 
 		try {
 									$con->begin();
-			
+			$affectedRows += UserPeer::doOnDeleteCascade($criteria, $con);
 			$affectedRows += BasePeer::doDelete($criteria, $con);
 			$con->commit();
 			return $affectedRows;
@@ -288,6 +304,25 @@ abstract class BaseUserPeer {
 			$con->rollback();
 			throw $e;
 		}
+	}
+
+	
+	protected static function doOnDeleteCascade(Criteria $criteria, Connection $con)
+	{
+				$affectedRows = 0;
+
+				$objects = UserPeer::doSelect($criteria, $con);
+		foreach($objects as $obj) {
+
+
+			include_once 'lib/model/Item.php';
+
+						$c = new Criteria();
+			
+			$c->add(ItemPeer::USER_ID, $obj->getId());
+			$affectedRows += ItemPeer::doDelete($c, $con);
+		}
+		return $affectedRows;
 	}
 
 	

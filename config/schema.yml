@@ -2,3 +2,23 @@ propel:
   user:
     name: varchar(60) #名前
     email: varchar(60) #メールアドレス
+    display: integer
+    created_at:
+    updated_at:
+
+  item:
+    user_id: {type: integer, foreignTable: user, foreignReference: id, onDelete: cascade}
+    next_item_id: {type: integer, foreignTable: item, foreignReference: id}
+    template_id: {type: integer, foreignTable: template, foreignReference: id, onDelete: cascade}
+    name: varchar(60)
+    description: longvarchar
+    display: integer
+    created_at:
+    updated_at:
+
+  template:
+    user_id:
+    display: integer
+    created_at:
+    updated_at:
+    
