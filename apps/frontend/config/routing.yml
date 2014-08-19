@@ -26,6 +26,10 @@ nyuryokun_show:
   url: /nyuryokun_show
   param: { module: nyuryokun, action: show }
 
+nyuryokun_edit:
+  url: /nyuryokun_edit
+  param: { module: nyuryokun, action: edit }
+
 #kousinkun
 kousinkun_select:
   url: /kousinkun

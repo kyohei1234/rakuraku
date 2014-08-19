@@ -58,6 +58,7 @@
         </div>
       </div>
       <?php echo link_to('<div class="btn">もっと詳しく</div>', '@nyuryokun_show') ?>
+      <?php echo link_to('<div class="btn">テンプレートを作成する</div>', '@nyuryokun_edit') ?>
     </div>
   </section>
 

@@ -2,10 +2,10 @@
 
 
 
-class UserMapBuilder {
+class TemplateMapBuilder {
 
 	
-	const CLASS_NAME = 'lib.model.map.UserMapBuilder';
+	const CLASS_NAME = 'lib.model.map.TemplateMapBuilder';
 
 	
 	private $dbMap;
@@ -27,14 +27,12 @@ class UserMapBuilder {
 	{
 		$this->dbMap = Propel::getDatabaseMap('propel');
 
-		$tMap = $this->dbMap->addTable('user');
-		$tMap->setPhpName('User');
+		$tMap = $this->dbMap->addTable('template');
+		$tMap->setPhpName('Template');
 
 		$tMap->setUseIdGenerator(true);
 
-		$tMap->addColumn('NAME', 'Name', 'string', CreoleTypes::VARCHAR, false, 60);
-
-		$tMap->addColumn('EMAIL', 'Email', 'string', CreoleTypes::VARCHAR, false, 60);
+		$tMap->addForeignKey('USER_ID', 'UserId', 'int', CreoleTypes::INTEGER, 'user', 'ID', false, null);
 
 		$tMap->addColumn('DISPLAY', 'Display', 'int', CreoleTypes::INTEGER, false, null);
 

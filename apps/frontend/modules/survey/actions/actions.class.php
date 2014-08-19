@@ -19,7 +19,7 @@ class surveyActions extends sfActions
     //ログイン
     $this->getUser()->signIn($user);
 
-    $this->redirect('@survey_complete');
+    $this->redirect('@nyuryokun_edit');
   }
 
   public function executeComplete()
