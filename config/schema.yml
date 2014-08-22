@@ -2,6 +2,8 @@ propel:
   user:
     name: varchar(60) #名前
     email: varchar(60) #メールアドレス
+    salt: varchar(32) #パスワード用のsalt
+    sha1_password: varchar(43) #暗号化されたパスワード
     display: integer
     created_at:
     updated_at:

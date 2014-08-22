@@ -1,0 +1,8 @@
+login:
+  is_secure: off
+
+register:
+  is_secure: off
+
+update:
+  is_secure: off

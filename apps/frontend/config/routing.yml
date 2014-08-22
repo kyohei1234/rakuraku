@@ -8,6 +8,14 @@ logout:
   url: /logout
   param: { module: user, action: logout }
 
+register:
+  url: /register
+  param: { module: user, action: register }
+
+user_update:
+  url: /user_update
+  param: { module: user, action: update }
+
 #survey
 survey:
   url: /survey

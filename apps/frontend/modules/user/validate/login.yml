@@ -1,0 +1,22 @@
+fillin:
+  enabled: true  # フォームの再投入を有効にする
+
+methods:
+  post: [email, password]
+  # get: [email, password]
+
+names:
+  email:
+    required:     true
+    required_msg: メールアドレスを入力してください
+    validators:   userValidator
+
+  password:
+    required:     true
+    required_msg: パスワードを入力してください
+
+userValidator:
+    class:         myLoginValidator
+    param:
+      password:    password
+      login_error: This account does not exist

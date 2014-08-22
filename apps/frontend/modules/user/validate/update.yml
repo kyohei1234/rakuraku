@@ -1,0 +1,41 @@
+fillin:
+  enabled: true  # フォームの再投入を有効にする
+
+methods:
+  post: [email, name, password]
+  get: [email, name, password]
+
+names:
+  name:
+    required: true
+    required_msg: 名前を入力してください
+    validators: userNameValidator
+
+  email:
+    required: true
+    required_msg: メールアドレスを入力してください
+    validators: emailValidator
+
+  password:
+    required: true
+    required_msg: パスワードを入力してください
+    validators: passwordValidator
+
+
+userNameValidator:
+    class: sfStringValidator
+    param:
+      max: 15
+      max_error:  ユーザー名は15字以内にしてください
+
+emailValidator:
+    class: sfEmailValidator
+    strict: true
+    param:
+      email_error: このメールアドレスは無効です
+
+passwordValidator:
+    class:        sfStringValidator
+    param:
+      min:        4
+      min_error:  パスワードは4文字以上にしてください
