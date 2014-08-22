@@ -218,6 +218,41 @@ main
 }
 
 /*nyuryokun*/
+.nyuryokun-title
+{
+  text-align: center;
+}
+
+.nyuryokun-btns a
+{
+  display: inline-block;
+  text-align: center;
+}
+
+.nyuryokun-edit-btns
+{
+  width: 30%;
+  margin: auto;
+}
+
+.nyuryokun-edit-btns a
+{
+  display: inline-block;
+  width: 32%;
+  text-align: center;
+}
+
+.nyuryokun-edit-btns .btn
+{
+  padding: 10px 20px;
+  width: 100px;
+}
+
+.new-template-name
+{
+  display: inline;
+}
+
 .nyuryokun-video
 {
   width: 100%;

@@ -12,6 +12,11 @@ class ItemPeer extends BaseItemPeer
   //テンプレート最初のitemを取得
   public static function doSelectFirstItem($items)
   {
+    if (!$items)
+    {
+      return NULL;
+    }
+
     $c = new Criteria();
 
     $id_array = array();

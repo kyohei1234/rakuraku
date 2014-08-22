@@ -34,6 +34,8 @@ class TemplateMapBuilder {
 
 		$tMap->addForeignKey('USER_ID', 'UserId', 'int', CreoleTypes::INTEGER, 'user', 'ID', false, null);
 
+		$tMap->addColumn('NAME', 'Name', 'string', CreoleTypes::VARCHAR, false, 60);
+
 		$tMap->addColumn('DISPLAY', 'Display', 'int', CreoleTypes::INTEGER, false, null);
 
 		$tMap->addColumn('CREATED_AT', 'CreatedAt', 'int', CreoleTypes::TIMESTAMP, false, null);

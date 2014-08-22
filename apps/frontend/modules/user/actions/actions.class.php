@@ -30,7 +30,7 @@ class userActions extends sfActions
     //ログイン
     $this->getUser()->signIn($user);
 
-    $this->redirect('@nyuryokun_edit');
+    $this->redirect('@nyuryokun_top');
   }
 
   //ログイン
@@ -47,7 +47,7 @@ class userActions extends sfActions
     //フォームから返ってきた場合
     else
     {
-      $this->redirect('@homepage');
+      $this->redirect('@nyuryokun_top');
     }
 
   }

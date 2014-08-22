@@ -13,6 +13,10 @@ abstract class BaseTemplate extends BaseObject  implements Persistent {
 
 
 	
+	protected $name;
+
+
+	
 	protected $display;
 
 
@@ -47,6 +51,13 @@ abstract class BaseTemplate extends BaseObject  implements Persistent {
 	{
 
 		return $this->user_id;
+	}
+
+	
+	public function getName()
+	{
+
+		return $this->name;
 	}
 
 	
@@ -126,6 +137,20 @@ abstract class BaseTemplate extends BaseObject  implements Persistent {
 
 	} 
 	
+	public function setName($v)
+	{
+
+						if ($v !== null && !is_string($v)) {
+			$v = (string) $v; 
+		}
+
+		if ($this->name !== $v) {
+			$this->name = $v;
+			$this->modifiedColumns[] = TemplatePeer::NAME;
+		}
+
+	} 
+	
 	public function setDisplay($v)
 	{
 
@@ -194,19 +219,21 @@ abstract class BaseTemplate extends BaseObject  implements Persistent {
 
 			$this->user_id = $rs->getInt($startcol + 0);
 
-			$this->display = $rs->getInt($startcol + 1);
+			$this->name = $rs->getString($startcol + 1);
 
-			$this->created_at = $rs->getTimestamp($startcol + 2, null);
+			$this->display = $rs->getInt($startcol + 2);
 
-			$this->updated_at = $rs->getTimestamp($startcol + 3, null);
+			$this->created_at = $rs->getTimestamp($startcol + 3, null);
 
-			$this->id = $rs->getInt($startcol + 4);
+			$this->updated_at = $rs->getTimestamp($startcol + 4, null);
+
+			$this->id = $rs->getInt($startcol + 5);
 
 			$this->resetModified();
 
 			$this->setNew(false);
 
-						return $startcol + 5; 
+						return $startcol + 6; 
 		} catch (Exception $e) {
 			throw new PropelException("Error populating Template object", $e);
 		}
@@ -380,15 +407,18 @@ abstract class BaseTemplate extends BaseObject  implements Persistent {
 				return $this->getUserId();
 				break;
 			case 1:
-				return $this->getDisplay();
+				return $this->getName();
 				break;
 			case 2:
-				return $this->getCreatedAt();
+				return $this->getDisplay();
 				break;
 			case 3:
-				return $this->getUpdatedAt();
+				return $this->getCreatedAt();
 				break;
 			case 4:
+				return $this->getUpdatedAt();
+				break;
+			case 5:
 				return $this->getId();
 				break;
 			default:
@@ -402,10 +432,11 @@ abstract class BaseTemplate extends BaseObject  implements Persistent {
 		$keys = TemplatePeer::getFieldNames($keyType);
 		$result = array(
 			$keys[0] => $this->getUserId(),
-			$keys[1] => $this->getDisplay(),
-			$keys[2] => $this->getCreatedAt(),
-			$keys[3] => $this->getUpdatedAt(),
-			$keys[4] => $this->getId(),
+			$keys[1] => $this->getName(),
+			$keys[2] => $this->getDisplay(),
+			$keys[3] => $this->getCreatedAt(),
+			$keys[4] => $this->getUpdatedAt(),
+			$keys[5] => $this->getId(),
 		);
 		return $result;
 	}
@@ -425,15 +456,18 @@ abstract class BaseTemplate extends BaseObject  implements Persistent {
 				$this->setUserId($value);
 				break;
 			case 1:
-				$this->setDisplay($value);
+				$this->setName($value);
 				break;
 			case 2:
-				$this->setCreatedAt($value);
+				$this->setDisplay($value);
 				break;
 			case 3:
-				$this->setUpdatedAt($value);
+				$this->setCreatedAt($value);
 				break;
 			case 4:
+				$this->setUpdatedAt($value);
+				break;
+			case 5:
 				$this->setId($value);
 				break;
 		} 	}
@@ -444,10 +478,11 @@ abstract class BaseTemplate extends BaseObject  implements Persistent {
 		$keys = TemplatePeer::getFieldNames($keyType);
 
 		if (array_key_exists($keys[0], $arr)) $this->setUserId($arr[$keys[0]]);
-		if (array_key_exists($keys[1], $arr)) $this->setDisplay($arr[$keys[1]]);
-		if (array_key_exists($keys[2], $arr)) $this->setCreatedAt($arr[$keys[2]]);
-		if (array_key_exists($keys[3], $arr)) $this->setUpdatedAt($arr[$keys[3]]);
-		if (array_key_exists($keys[4], $arr)) $this->setId($arr[$keys[4]]);
+		if (array_key_exists($keys[1], $arr)) $this->setName($arr[$keys[1]]);
+		if (array_key_exists($keys[2], $arr)) $this->setDisplay($arr[$keys[2]]);
+		if (array_key_exists($keys[3], $arr)) $this->setCreatedAt($arr[$keys[3]]);
+		if (array_key_exists($keys[4], $arr)) $this->setUpdatedAt($arr[$keys[4]]);
+		if (array_key_exists($keys[5], $arr)) $this->setId($arr[$keys[5]]);
 	}
 
 	
@@ -456,6 +491,7 @@ abstract class BaseTemplate extends BaseObject  implements Persistent {
 		$criteria = new Criteria(TemplatePeer::DATABASE_NAME);
 
 		if ($this->isColumnModified(TemplatePeer::USER_ID)) $criteria->add(TemplatePeer::USER_ID, $this->user_id);
+		if ($this->isColumnModified(TemplatePeer::NAME)) $criteria->add(TemplatePeer::NAME, $this->name);
 		if ($this->isColumnModified(TemplatePeer::DISPLAY)) $criteria->add(TemplatePeer::DISPLAY, $this->display);
 		if ($this->isColumnModified(TemplatePeer::CREATED_AT)) $criteria->add(TemplatePeer::CREATED_AT, $this->created_at);
 		if ($this->isColumnModified(TemplatePeer::UPDATED_AT)) $criteria->add(TemplatePeer::UPDATED_AT, $this->updated_at);
@@ -491,6 +527,8 @@ abstract class BaseTemplate extends BaseObject  implements Persistent {
 	{
 
 		$copyObj->setUserId($this->user_id);
+
+		$copyObj->setName($this->name);
 
 		$copyObj->setDisplay($this->display);
 

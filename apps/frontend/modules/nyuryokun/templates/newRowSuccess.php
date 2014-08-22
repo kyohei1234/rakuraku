@@ -1,1 +1,1 @@
-<?php include_partial('form_table', array('item' => $item)) ?>
+<?php include_partial('form_table', array('item' => $item, 'template' => $template)) ?>

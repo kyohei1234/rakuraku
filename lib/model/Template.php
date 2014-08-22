@@ -9,4 +9,15 @@
  */ 
 class Template extends BaseTemplate
 {
+  public function __toString()
+  {
+    if ($this->getName())
+    {
+      return $this->getName();
+    }
+    else
+    {
+      return '';
+    }
+  }
 }
