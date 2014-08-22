@@ -17,6 +17,14 @@ abstract class BaseUser extends BaseObject  implements Persistent {
 
 
 	
+	protected $salt;
+
+
+	
+	protected $sha1_password;
+
+
+	
 	protected $display;
 
 
@@ -61,6 +69,20 @@ abstract class BaseUser extends BaseObject  implements Persistent {
 	{
 
 		return $this->email;
+	}
+
+	
+	public function getSalt()
+	{
+
+		return $this->salt;
+	}
+
+	
+	public function getSha1Password()
+	{
+
+		return $this->sha1_password;
 	}
 
 	
@@ -150,6 +172,34 @@ abstract class BaseUser extends BaseObject  implements Persistent {
 
 	} 
 	
+	public function setSalt($v)
+	{
+
+						if ($v !== null && !is_string($v)) {
+			$v = (string) $v; 
+		}
+
+		if ($this->salt !== $v) {
+			$this->salt = $v;
+			$this->modifiedColumns[] = UserPeer::SALT;
+		}
+
+	} 
+	
+	public function setSha1Password($v)
+	{
+
+						if ($v !== null && !is_string($v)) {
+			$v = (string) $v; 
+		}
+
+		if ($this->sha1_password !== $v) {
+			$this->sha1_password = $v;
+			$this->modifiedColumns[] = UserPeer::SHA1_PASSWORD;
+		}
+
+	} 
+	
 	public function setDisplay($v)
 	{
 
@@ -220,19 +270,23 @@ abstract class BaseUser extends BaseObject  implements Persistent {
 
 			$this->email = $rs->getString($startcol + 1);
 
-			$this->display = $rs->getInt($startcol + 2);
+			$this->salt = $rs->getString($startcol + 2);
 
-			$this->created_at = $rs->getTimestamp($startcol + 3, null);
+			$this->sha1_password = $rs->getString($startcol + 3);
 
-			$this->updated_at = $rs->getTimestamp($startcol + 4, null);
+			$this->display = $rs->getInt($startcol + 4);
 
-			$this->id = $rs->getInt($startcol + 5);
+			$this->created_at = $rs->getTimestamp($startcol + 5, null);
+
+			$this->updated_at = $rs->getTimestamp($startcol + 6, null);
+
+			$this->id = $rs->getInt($startcol + 7);
 
 			$this->resetModified();
 
 			$this->setNew(false);
 
-						return $startcol + 6; 
+						return $startcol + 8; 
 		} catch (Exception $e) {
 			throw new PropelException("Error populating User object", $e);
 		}
@@ -408,15 +462,21 @@ abstract class BaseUser extends BaseObject  implements Persistent {
 				return $this->getEmail();
 				break;
 			case 2:
-				return $this->getDisplay();
+				return $this->getSalt();
 				break;
 			case 3:
-				return $this->getCreatedAt();
+				return $this->getSha1Password();
 				break;
 			case 4:
-				return $this->getUpdatedAt();
+				return $this->getDisplay();
 				break;
 			case 5:
+				return $this->getCreatedAt();
+				break;
+			case 6:
+				return $this->getUpdatedAt();
+				break;
+			case 7:
 				return $this->getId();
 				break;
 			default:
@@ -431,10 +491,12 @@ abstract class BaseUser extends BaseObject  implements Persistent {
 		$result = array(
 			$keys[0] => $this->getName(),
 			$keys[1] => $this->getEmail(),
-			$keys[2] => $this->getDisplay(),
-			$keys[3] => $this->getCreatedAt(),
-			$keys[4] => $this->getUpdatedAt(),
-			$keys[5] => $this->getId(),
+			$keys[2] => $this->getSalt(),
+			$keys[3] => $this->getSha1Password(),
+			$keys[4] => $this->getDisplay(),
+			$keys[5] => $this->getCreatedAt(),
+			$keys[6] => $this->getUpdatedAt(),
+			$keys[7] => $this->getId(),
 		);
 		return $result;
 	}
@@ -457,15 +519,21 @@ abstract class BaseUser extends BaseObject  implements Persistent {
 				$this->setEmail($value);
 				break;
 			case 2:
-				$this->setDisplay($value);
+				$this->setSalt($value);
 				break;
 			case 3:
-				$this->setCreatedAt($value);
+				$this->setSha1Password($value);
 				break;
 			case 4:
-				$this->setUpdatedAt($value);
+				$this->setDisplay($value);
 				break;
 			case 5:
+				$this->setCreatedAt($value);
+				break;
+			case 6:
+				$this->setUpdatedAt($value);
+				break;
+			case 7:
 				$this->setId($value);
 				break;
 		} 	}
@@ -477,10 +545,12 @@ abstract class BaseUser extends BaseObject  implements Persistent {
 
 		if (array_key_exists($keys[0], $arr)) $this->setName($arr[$keys[0]]);
 		if (array_key_exists($keys[1], $arr)) $this->setEmail($arr[$keys[1]]);
-		if (array_key_exists($keys[2], $arr)) $this->setDisplay($arr[$keys[2]]);
-		if (array_key_exists($keys[3], $arr)) $this->setCreatedAt($arr[$keys[3]]);
-		if (array_key_exists($keys[4], $arr)) $this->setUpdatedAt($arr[$keys[4]]);
-		if (array_key_exists($keys[5], $arr)) $this->setId($arr[$keys[5]]);
+		if (array_key_exists($keys[2], $arr)) $this->setSalt($arr[$keys[2]]);
+		if (array_key_exists($keys[3], $arr)) $this->setSha1Password($arr[$keys[3]]);
+		if (array_key_exists($keys[4], $arr)) $this->setDisplay($arr[$keys[4]]);
+		if (array_key_exists($keys[5], $arr)) $this->setCreatedAt($arr[$keys[5]]);
+		if (array_key_exists($keys[6], $arr)) $this->setUpdatedAt($arr[$keys[6]]);
+		if (array_key_exists($keys[7], $arr)) $this->setId($arr[$keys[7]]);
 	}
 
 	
@@ -490,6 +560,8 @@ abstract class BaseUser extends BaseObject  implements Persistent {
 
 		if ($this->isColumnModified(UserPeer::NAME)) $criteria->add(UserPeer::NAME, $this->name);
 		if ($this->isColumnModified(UserPeer::EMAIL)) $criteria->add(UserPeer::EMAIL, $this->email);
+		if ($this->isColumnModified(UserPeer::SALT)) $criteria->add(UserPeer::SALT, $this->salt);
+		if ($this->isColumnModified(UserPeer::SHA1_PASSWORD)) $criteria->add(UserPeer::SHA1_PASSWORD, $this->sha1_password);
 		if ($this->isColumnModified(UserPeer::DISPLAY)) $criteria->add(UserPeer::DISPLAY, $this->display);
 		if ($this->isColumnModified(UserPeer::CREATED_AT)) $criteria->add(UserPeer::CREATED_AT, $this->created_at);
 		if ($this->isColumnModified(UserPeer::UPDATED_AT)) $criteria->add(UserPeer::UPDATED_AT, $this->updated_at);
@@ -527,6 +599,10 @@ abstract class BaseUser extends BaseObject  implements Persistent {
 		$copyObj->setName($this->name);
 
 		$copyObj->setEmail($this->email);
+
+		$copyObj->setSalt($this->salt);
+
+		$copyObj->setSha1Password($this->sha1_password);
 
 		$copyObj->setDisplay($this->display);
 

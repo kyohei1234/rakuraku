@@ -1,8 +1,10 @@
 <?php if (!$item): ?>
   <?php echo form_tag('nyuryokun/newRow', 'id=new-template-form') ?>
+    <div class="new-template-name"><?php echo input_tag('template-name', '', array('value' => $template, 'class' => 'name-input')) ?></div>
     <div class="btn" id="new-template">新しいテンプレートを作成</div>
   </form>
 <?php else: ?>
+  <div><?php echo $template ?></div>
   <table class="table table-striped table-hover">
     <tbody>
       <?php do { ?>

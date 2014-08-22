@@ -10,8 +10,7 @@
 
   <section class="top-characteristics">
     <div class="row">
-      <h2>期間限定！アンケートに答えると更新アプリ無料プレゼント！</h2>
-      <?php echo link_to('<div class="btn">今すぐアンケートに答える</div>', '@survey') ?>
+      <?php echo link_to('<div class="btn">今すぐ登録する</div>', '@register') ?>
       <!-- <div class="characteristics-item">
         <div>
           <i class="fa fa-desktop"></i>

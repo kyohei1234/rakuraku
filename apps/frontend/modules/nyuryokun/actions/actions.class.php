@@ -10,20 +10,37 @@
  */
 class nyuryokunActions extends sfActions
 {
+  public function executeTop()
+  {
+    $user = $this->getUser()->getMember();
+
+    $this->templates =   $user->getTemplates();
+  }
+
   public function executeShow()
   {
     
+  }
+
+  public function executeCreate()
+  {
+    $this->template = new Template();
+
+    $this->redirect('@nyuryokun_edit?id=new');
   }
 
   public function executeEdit()
   {
     $user = $this->getUser()->getMember();
 
-    $items = $user->getItems();
+    $this->template = TemplatePeer::retrieveByPk($this->getRequestParameter('id'));
+
+    $c = new Criteria();
+    $c->add(ItemPeer::TEMPLATE_ID, $this->template->getId());
+
+    $items = $user->getItems($c);
 
     $this->item = ItemPeer::doSelectFirstItem($items);
-
-    ChromePhp::log($items);
     ChromePhp::log($this->item);
   }
 
@@ -35,6 +52,7 @@ class nyuryokunActions extends sfActions
     if (!$this->getRequestParameter('id'))
     {
       $template = new Template();
+      $template->setName($this->getRequestParameter('name'));
       $template->setUserId($user->getId());
       $template->save();
 
@@ -65,10 +83,14 @@ class nyuryokunActions extends sfActions
       $previous_item->setNextItemId($item->getId());
       $previous_item->setName($this->getRequestParameter('name'));  
       $previous_item->save();
+
+      $template = TemplatePeer::retrieveByPk($this->getRequestParameter('template'));
     }
 
     $items = $user->getItems();
     $this->item = ItemPeer::doSelectFirstItem($items);
+
+    $this->template = $template;
   }
 
   public function executeDeleteRow()

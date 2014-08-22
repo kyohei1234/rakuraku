@@ -13,7 +13,7 @@ abstract class BaseTemplatePeer {
 	const CLASS_DEFAULT = 'lib.model.Template';
 
 	
-	const NUM_COLUMNS = 5;
+	const NUM_COLUMNS = 6;
 
 	
 	const NUM_LAZY_LOAD_COLUMNS = 0;
@@ -21,6 +21,9 @@ abstract class BaseTemplatePeer {
 
 	
 	const USER_ID = 'template.USER_ID';
+
+	
+	const NAME = 'template.NAME';
 
 	
 	const DISPLAY = 'template.DISPLAY';
@@ -40,18 +43,18 @@ abstract class BaseTemplatePeer {
 
 	
 	private static $fieldNames = array (
-		BasePeer::TYPE_PHPNAME => array ('UserId', 'Display', 'CreatedAt', 'UpdatedAt', 'Id', ),
-		BasePeer::TYPE_COLNAME => array (TemplatePeer::USER_ID, TemplatePeer::DISPLAY, TemplatePeer::CREATED_AT, TemplatePeer::UPDATED_AT, TemplatePeer::ID, ),
-		BasePeer::TYPE_FIELDNAME => array ('user_id', 'display', 'created_at', 'updated_at', 'id', ),
-		BasePeer::TYPE_NUM => array (0, 1, 2, 3, 4, )
+		BasePeer::TYPE_PHPNAME => array ('UserId', 'Name', 'Display', 'CreatedAt', 'UpdatedAt', 'Id', ),
+		BasePeer::TYPE_COLNAME => array (TemplatePeer::USER_ID, TemplatePeer::NAME, TemplatePeer::DISPLAY, TemplatePeer::CREATED_AT, TemplatePeer::UPDATED_AT, TemplatePeer::ID, ),
+		BasePeer::TYPE_FIELDNAME => array ('user_id', 'name', 'display', 'created_at', 'updated_at', 'id', ),
+		BasePeer::TYPE_NUM => array (0, 1, 2, 3, 4, 5, )
 	);
 
 	
 	private static $fieldKeys = array (
-		BasePeer::TYPE_PHPNAME => array ('UserId' => 0, 'Display' => 1, 'CreatedAt' => 2, 'UpdatedAt' => 3, 'Id' => 4, ),
-		BasePeer::TYPE_COLNAME => array (TemplatePeer::USER_ID => 0, TemplatePeer::DISPLAY => 1, TemplatePeer::CREATED_AT => 2, TemplatePeer::UPDATED_AT => 3, TemplatePeer::ID => 4, ),
-		BasePeer::TYPE_FIELDNAME => array ('user_id' => 0, 'display' => 1, 'created_at' => 2, 'updated_at' => 3, 'id' => 4, ),
-		BasePeer::TYPE_NUM => array (0, 1, 2, 3, 4, )
+		BasePeer::TYPE_PHPNAME => array ('UserId' => 0, 'Name' => 1, 'Display' => 2, 'CreatedAt' => 3, 'UpdatedAt' => 4, 'Id' => 5, ),
+		BasePeer::TYPE_COLNAME => array (TemplatePeer::USER_ID => 0, TemplatePeer::NAME => 1, TemplatePeer::DISPLAY => 2, TemplatePeer::CREATED_AT => 3, TemplatePeer::UPDATED_AT => 4, TemplatePeer::ID => 5, ),
+		BasePeer::TYPE_FIELDNAME => array ('user_id' => 0, 'name' => 1, 'display' => 2, 'created_at' => 3, 'updated_at' => 4, 'id' => 5, ),
+		BasePeer::TYPE_NUM => array (0, 1, 2, 3, 4, 5, )
 	);
 
 	
@@ -106,6 +109,8 @@ abstract class BaseTemplatePeer {
 	{
 
 		$criteria->addSelectColumn(TemplatePeer::USER_ID);
+
+		$criteria->addSelectColumn(TemplatePeer::NAME);
 
 		$criteria->addSelectColumn(TemplatePeer::DISPLAY);
 

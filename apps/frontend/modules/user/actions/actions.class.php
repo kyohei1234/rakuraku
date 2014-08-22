@@ -10,6 +10,29 @@
  */
 class userActions extends sfActions
 {
+  //新規登録
+  public function executeRegister()
+  {
+
+  }
+
+  //データベースに登録
+  public function executeUpdate()
+  {
+    $user = new User();
+
+    $user->setName($this->getRequestParameter('name'));
+    $user->setEmail($this->getRequestParameter('email'));
+    $user->setPassword($this->getRequestParameter('password'));
+
+    $user->save();
+
+    //ログイン
+    $this->getUser()->signIn($user);
+
+    $this->redirect('@nyuryokun_top');
+  }
+
   //ログイン
   public function executeLogin()
   {
@@ -24,7 +47,7 @@ class userActions extends sfActions
     //フォームから返ってきた場合
     else
     {
-      $this->redirect('@homepage');
+      $this->redirect('@nyuryokun_top');
     }
 
   }
@@ -35,5 +58,16 @@ class userActions extends sfActions
     $this->getUser()->signOut();
 
     $this->redirect('@homepage');
-  } 
+  }
+
+  //バリデーション欄連
+  public function handleErrorLogin()
+  {
+    return sfView::SUCCESS;
+  }
+
+  public function handleErrorUpdate()
+  {
+    return $this->forward('user', 'register');
+  }
 }
